@@ -1,0 +1,71 @@
+/**
+ * globals.css
+ * Global styles, Google Fonts imports, ticker animation, and shared utility classes.
+ * All custom CSS from the Stitch design lives here — never in component files.
+ */
+
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700;800&family=JetBrains+Mono:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- Base --- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fafaf8;
+  color: #1a1b21;
+  margin: 0;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: #ffdea4; /* secondary-fixed */
+}
+
+/* --- Material Symbols --- */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+
+/* --- Soft shadow used on hero photo card --- */
+.soft-shadow {
+  box-shadow: 0 20px 40px -15px rgba(26, 58, 143, 0.06);
+}
+
+/* --- Ticker / scrolling banner animation --- */
+.ticker-animation {
+  animation: ticker-scroll 40s linear infinite;
+  width: max-content;
+}
+
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Pause animation when user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .ticker-animation {
+    animation: none;
+    transform: none;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* --- Editorial divider line (gradient from navy to transparent) --- */
+.editorial-line {
+  height: 1px;
+  background: linear-gradient(to right, #1a3a8f 20%, transparent 100%);
+}

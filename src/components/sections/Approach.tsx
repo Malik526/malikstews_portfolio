@@ -1,29 +1,45 @@
-import SectionHeading from "../ui/SectionHeading";
+/**
+ * Approach.tsx
+ * Two-column principles section: intro text left, numbered list right.
+ * Spacing: py-16 (reduced from py-32 per spec).
+ */
 
-const principles = [
-  ["Start with the operating problem", "Find the repeated friction: missed follow-ups, manual steps, weak visibility, unclear ownership, or inconsistent decisions."],
-  ["Turn workflow into structure", "Create a data model, repeatable process, or lightweight tool that makes the next action obvious."],
-  ["Automate after the logic is clear", "Automation works best when the rules, exceptions, and handoff points are understood first."],
-  ["Use analytics to improve judgment", "Dashboards and models should help someone decide, prioritize, or explain tradeoffs."],
-];
+import React from "react";
+import { principles } from "../../lib/content";
 
-const Approach = () => {
+const Approach: React.FC = () => {
   return (
-    <section className="border-b border-line py-16 sm:py-20">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 lg:grid-cols-[0.8fr_1.2fr]">
-        <SectionHeading
-          eyebrow="Approach"
-          title="Implementation over theory. Leverage over busywork."
-          description="I build practical systems that make operations cleaner: fewer repeated decisions, stronger follow-through, clearer data, and better communication between people and tools."
-        />
-        <div className="grid gap-4 sm:grid-cols-2">
-          {principles.map(([title, body]) => (
-            <article key={title} className="rounded-lg border border-line bg-panel/75 p-5">
-              <h3 className="text-lg font-semibold tracking-tight text-white">{title}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-400">{body}</p>
-            </article>
+    <section className="max-w-max-width mx-auto px-margin-desktop py-16">
+      <div className="grid lg:grid-cols-2 gap-16">
+
+        {/* --- Left: intro --- */}
+        <div>
+          <h3 className="font-label-mono text-label-mono text-secondary mb-3">
+            {principles.label}
+          </h3>
+          <p className="font-display-hero text-headline-lg text-primary mb-5">
+            {principles.heading}
+          </p>
+          <p className="font-body-lg text-on-surface-variant leading-relaxed">
+            {principles.subtext}
+          </p>
+        </div>
+
+        {/* --- Right: numbered principles --- */}
+        <div className="space-y-8">
+          {principles.items.map((item) => (
+            <div key={item.number} className="flex gap-6">
+              <span className="font-display-hero text-headline-lg text-outline-variant shrink-0">
+                {item.number}
+              </span>
+              <div>
+                <h6 className="font-headline-md text-secondary mb-1">{item.title}</h6>
+                <p className="font-body-md text-on-surface-variant">{item.body}</p>
+              </div>
+            </div>
           ))}
         </div>
+
       </div>
     </section>
   );

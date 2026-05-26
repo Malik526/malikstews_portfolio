@@ -1,39 +1,38 @@
-import { experience } from "../../data/experience";
-import SectionHeading from "../ui/SectionHeading";
+/**
+ * OperationalExperience.tsx
+ * Experience / resume section in a 12-column grid: heading left, entries right.
+ * Uses ExperienceEntry UI component for each role.
+ * Spacing: py-16 (reduced from py-32 per spec).
+ */
 
-const OperationalExperience = () => {
+import React from "react";
+import { experience } from "../../lib/content";
+import ExperienceEntry from "../ui/ExperienceEntry";
+
+const OperationalExperience: React.FC = () => {
   return (
-    <section className="border-b border-line bg-white/[0.02] py-16 sm:py-20">
-      <div className="mx-auto max-w-6xl px-4">
-        <SectionHeading
-          eyebrow="Operational Experience"
-          title="Real-time execution in high-standard service environments."
-          description="Luxury hospitality taught me the human side of operations: communication, discretion, stakeholder coordination, and calm execution when timing matters."
-        />
+    <section className="bg-surface-container-low py-16">
+      <div className="max-w-max-width mx-auto px-margin-desktop">
+        <div className="grid lg:grid-cols-12 gap-12">
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-2">
-          {experience.map((entry) => (
-            <article key={entry.company} className="rounded-lg border border-line bg-panel/75 p-5">
-              <h3 className="text-2xl font-semibold tracking-tight text-white">{entry.company}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-400">{entry.environment}</p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {entry.themes.map((theme) => (
-                  <span key={theme} className="rounded-md border border-line bg-ink/70 px-2.5 py-1 text-xs text-slate-400">
-                    {theme}
-                  </span>
-                ))}
-              </div>
-              <div className="mt-6 rounded-md border border-line bg-ink/60 p-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-signal">What I learned</p>
-                <p className="mt-2 text-sm leading-6 text-slate-400">{entry.learned}</p>
-              </div>
-            </article>
-          ))}
+          {/* --- Left: section heading --- */}
+          <div className="lg:col-span-4">
+            <h3 className="font-label-mono text-label-mono text-secondary mb-3">
+              {experience.label}
+            </h3>
+            <p className="font-display-hero text-headline-lg text-primary">
+              {experience.heading}
+            </p>
+          </div>
+
+          {/* --- Right: experience entries --- */}
+          <div className="lg:col-span-8 space-y-8">
+            {experience.items.map((item) => (
+              <ExperienceEntry key={item.title + item.company} {...item} />
+            ))}
+          </div>
+
         </div>
-
-        <p className="mt-8 max-w-3xl text-sm leading-6 text-slate-500">
-          These environments included moments serving former presidents, world-class athletes, and high-profile entertainers. The emphasis is professional trust, discretion, and execution quality.
-        </p>
       </div>
     </section>
   );

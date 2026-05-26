@@ -1,42 +1,44 @@
-import { categories, projects } from "../../data/projects";
-import SectionHeading from "../ui/SectionHeading";
+/**
+ * CapabilityAreas.tsx
+ * Three-column capabilities grid on a warm off-white background.
+ * Each item has a Material Symbol icon, bold title, and description.
+ * Spacing: py-16 lg:py-20 (reduced from py-32 lg:py-40 per spec).
+ */
 
-const CapabilityAreas = () => {
+import React from "react";
+import { capabilities } from "../../lib/content";
+
+const CapabilityAreas: React.FC = () => {
   return (
-    <section className="border-b border-line py-16 sm:py-20">
-      <div className="mx-auto max-w-6xl px-4">
-        <SectionHeading
-          eyebrow="Capability Areas"
-          title="Work organized by the systems it creates."
-          description="This portfolio is structured around operational value, not isolated coding exercises."
-        />
+    <section className="bg-[#f0ede8] py-16 lg:py-20" id="capabilities">
+      <div className="max-w-max-width mx-auto px-margin-desktop">
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-3">
-          {categories.map((category) => (
-            <article key={category.title} className="rounded-lg border border-line bg-panel/75 p-5">
-              <h3 className="text-xl font-semibold tracking-tight text-white">{category.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-400">{category.description}</p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {category.signals.map((signal) => (
-                  <span key={signal} className="rounded-md border border-line bg-ink/70 px-2.5 py-1 text-xs text-slate-400">
-                    {signal}
-                  </span>
-                ))}
-              </div>
-              <div className="mt-6 border-t border-line pt-5">
-                {projects
-                  .filter((project) => project.category === category.title)
-                  .slice(0, 4)
-                  .map((project) => (
-                    <div key={project.slug} className="flex items-center justify-between gap-3 py-1 text-sm">
-                      <span className="text-slate-200">{project.title}</span>
-                      <span className="shrink-0 text-xs text-slate-500">{project.status}</span>
-                    </div>
-                  ))}
-              </div>
-            </article>
+        {/* --- Section header --- */}
+        <div className="mb-10">
+          <h3 className="font-label-mono text-label-mono text-secondary mb-3">
+            {capabilities.label}
+          </h3>
+          <div className="editorial-line w-24 mb-5" />
+          <p className="font-display-hero text-headline-lg max-w-2xl text-primary">
+            {capabilities.tagline}
+          </p>
+        </div>
+
+        {/* --- Three capability cards --- */}
+        <div className="grid md:grid-cols-3 gap-10">
+          {capabilities.items.map((item) => (
+            <div key={item.title} className="space-y-4">
+              <span className="material-symbols-outlined text-4xl text-primary">
+                {item.icon}
+              </span>
+              <h4 className="font-headline-md text-secondary">{item.title}</h4>
+              <p className="font-body-md text-on-surface-variant leading-relaxed">
+                {item.description}
+              </p>
+            </div>
           ))}
         </div>
+
       </div>
     </section>
   );

@@ -1,43 +1,58 @@
-import { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
-import { Link } from "react-router-dom";
+/**
+ * Button.tsx
+ * Reusable button primitive with two variants: "primary" (filled navy) and "outline" (bordered).
+ * Props: label, href (optional — renders <a> if present), variant, onClick, icon (Material Symbol name)
+ */
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: "primary" | "secondary";
-};
+import React from "react";
 
-export const Button = ({ className = "", variant = "primary", ...props }: ButtonProps) => {
+interface ButtonProps {
+  label: string;
+  href?: string;
+  variant?: "primary" | "outline";
+  icon?: string;
+  onClick?: () => void;
+  className?: string;
+}
+
+// Renders a filled primary button or an outlined secondary button
+const Button: React.FC<ButtonProps> = ({
+  label,
+  href,
+  variant = "primary",
+  icon,
+  onClick,
+  className = "",
+}) => {
+  const base =
+    "inline-flex items-center gap-2 px-8 py-3 rounded-lg font-body-md transition-all duration-200 active:scale-95 cursor-pointer";
+
   const styles =
     variant === "primary"
-      ? "border-signal/50 bg-signal text-ink hover:bg-cyan-300"
-      : "border-white/15 bg-white/5 text-white hover:bg-white/10";
+      ? `${base} bg-primary text-on-primary hover:bg-primary/90`
+      : `${base} border-2 border-primary text-primary hover:bg-primary/5`;
+
+  const content = (
+    <>
+      {label}
+      {icon && <span className="material-symbols-outlined text-[20px]">{icon}</span>}
+    </>
+  );
+
+  // Render anchor if href provided, otherwise button
+  if (href) {
+    return (
+      <a href={href} className={`${styles} ${className}`}>
+        {content}
+      </a>
+    );
+  }
 
   return (
-    <button
-      className={`inline-flex min-h-11 items-center justify-center rounded-md border px-4 text-sm font-semibold transition ${styles} ${className}`}
-      {...props}
-    />
+    <button onClick={onClick} className={`${styles} ${className}`}>
+      {content}
+    </button>
   );
 };
 
-type ButtonLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
-  to: string;
-  children: ReactNode;
-  variant?: "primary" | "secondary";
-};
-
-export const ButtonLink = ({ to, children, className = "", variant = "primary", ...props }: ButtonLinkProps) => {
-  const styles =
-    variant === "primary"
-      ? "border-signal/50 bg-signal text-ink hover:bg-cyan-300"
-      : "border-white/15 bg-white/5 text-white hover:bg-white/10";
-
-  return (
-    <Link
-      to={to}
-      className={`inline-flex min-h-11 items-center justify-center rounded-md border px-4 text-sm font-semibold transition ${styles} ${className}`}
-      {...props}
-    >
-      {children}
-    </Link>
-  );
-};
+export default Button;

@@ -1,23 +1,44 @@
-import { Route, Routes } from "react-router-dom";
-import ScrollToTop from "./utils/ScrollToTop";
-import Home from "./pages/Home";
-import Projects from "./pages/Projects";
-import ProjectDetail from "./pages/ProjectDetail";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
+/**
+ * App.tsx
+ * Root single-page application component.
+ * Renders all sections in order: Header → page sections → Footer.
+ * No router needed — this is a single-page portfolio with anchor scroll navigation.
+ */
 
-const App = () => {
+import React from "react";
+import { Header, Footer } from "./components/layout";
+import {
+  Hero,
+  Ticker,
+  CapabilityAreas,
+  FeaturedProjects,
+  Approach,
+  OperationalExperience,
+  ContactCta,
+} from "./components/sections";
+
+const App: React.FC = () => {
   return (
-    <>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/:slug" element={<ProjectDetail />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </>
+    <div className="text-on-surface selection:bg-secondary-fixed">
+
+      {/* --- Fixed top navigation --- */}
+      <Header />
+
+      {/* --- Page content below nav (pt-28 accounts for fixed header height) --- */}
+      <main className="pt-28">
+        <Hero />
+        <Ticker />
+        <CapabilityAreas />
+        <FeaturedProjects />
+        <Approach />
+        <OperationalExperience />
+        <ContactCta />
+      </main>
+
+      {/* --- Footer (no top margin per spec) --- */}
+      <Footer />
+
+    </div>
   );
 };
 
