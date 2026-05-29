@@ -1,5 +1,28 @@
 # CHANGELOG
 
+## [2026-05-28] — Featured Project Videos + Fullscreen Control
+
+### Summary
+Replaced the Recent Systems & Automations project card grid with three video-led featured project showcases and added a reliable custom fullscreen button for each video.
+
+### Changes
+- Added `src/data/featuredProjects.ts` as the metadata source for featured projects.
+- Added `src/components/ui/FeaturedProject.tsx` for reusable video showcase blocks.
+- Added `src/components/sections/FeaturedProjectsSection.tsx` to render the three featured projects.
+- Updated `src/components/sections/FeaturedProjects.tsx` to render featured video projects instead of the old card grid.
+- Renamed featured video files to the expected `demo.mp4` convention:
+  - `public/videos/featured/moreclientsco/demo.mp4`
+  - `public/videos/featured/prospecting-tool/demo.mp4`
+  - `public/videos/featured/firstmove/demo.mp4`
+- Added a custom fullscreen button that calls `requestFullscreen()` with `webkitEnterFullscreen()` fallback for iOS Safari.
+- Wired FirstMove to use `/images/frames/iphone-frame.png` only for the FirstMove video frame.
+
+### Notes
+- Existing project data for Job Automation, Home Chef Jerry, and Movie Analytics remains in `src/lib/content.ts` for future Additional Projects expansion.
+- The iPhone frame path is wired, but `public/images/frames/iphone-frame.png` is not currently present in the repo.
+
+---
+
 ## [2026-05-26] — Hero Headshot: Replace Placeholder with Real Photo
 
 ### Summary

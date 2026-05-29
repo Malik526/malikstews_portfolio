@@ -1,13 +1,13 @@
 /**
  * FeaturedProjects.tsx
- * 3-column project grid on white background.
- * Uses ProjectCard UI component for each item.
+ * Recent Systems & Automations section.
+ * Renders the three featured video projects.
  * Spacing: py-16 lg:py-20 (reduced from py-32 lg:py-40 per spec).
  */
 
 import React from "react";
 import { projects } from "../../lib/content";
-import ProjectCard from "../ui/ProjectCard";
+import FeaturedProjectsSection from "./FeaturedProjectsSection";
 
 const FeaturedProjects: React.FC = () => {
   return (
@@ -34,12 +34,8 @@ const FeaturedProjects: React.FC = () => {
           </button>
         </div>
 
-        {/* --- Project cards grid --- */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.items.map((project) => (
-            <ProjectCard key={project.title} {...project} />
-          ))}
-        </div>
+        {/* --- Featured video projects --- */}
+        <FeaturedProjectsSection />
 
       </div>
     </section>
