@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## [2026-06-04 13:16 EDT] — Cold Calling & Sales Experience Section
+
+### Summary
+Added a new editorial Cold Calling & Sales Experience section between Capabilities and Selected Work without changing the existing sections, typography system, or project layout.
+
+### Changes
+- Added `src/components/sections/ColdCalling.tsx` for sales stats, outbound activity details, and a dark navy cold call recording placeholder.
+- Added the `coldCalling` content key to `src/lib/content.ts`.
+- Exported the new section from `src/components/sections/index.ts`.
+- Inserted `<ColdCalling />` between `<CapabilityAreas />` and `<FeaturedProjects />` in `src/App.tsx`.
+
+### Verification
+- Ran `npm run build` successfully.
+- Started the Vite dev server and verified the local page responds with HTTP 200.
+- Confirmed no emoji characters were found in `src` or `CHANGELOG.md`.
+
+---
+
 ## [2026-05-28] — Featured Project Videos + Fullscreen Control
 
 ### Summary

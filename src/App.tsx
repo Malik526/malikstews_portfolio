@@ -11,6 +11,7 @@ import {
   Hero,
   Ticker,
   CapabilityAreas,
+  ColdCalling,
   FeaturedProjects,
   Approach,
   OperationalExperience,
@@ -29,6 +30,7 @@ const App: React.FC = () => {
         <Hero />
         <Ticker />
         <CapabilityAreas />
+        <ColdCalling />
         <FeaturedProjects />
         <Approach />
         <OperationalExperience />

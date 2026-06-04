@@ -69,6 +69,69 @@ export const capabilities = {
   ],
 };
 
+// --- Cold Calling & Sales Experience Section ---
+export const coldCalling = {
+  label: "SALES & OUTREACH",
+  headline: "Real Outbound Sales. Real Objections. Real Pipeline.",
+  subheadline:
+    "Before building systems I had to sell them. I run the full outbound sales cycle independently — from prospecting to cold call to demo to follow-up.",
+  stats: [
+    {
+      number: "300+",
+      label: "Prospects Researched",
+    },
+    {
+      number: "18",
+      label: "Business Categories Targeted",
+    },
+    {
+      number: "Multi-Channel",
+      label: "Phone · DM · Text Follow-Up",
+    },
+    {
+      number: "Live",
+      label: "Objection Handling On Every Call",
+    },
+  ],
+  activities: [
+    {
+      title: "Cold Calling",
+      description:
+        "Outbound calls to local service businesses with no website — electricians, med spas, HVAC, plumbers, photographers. Working through gatekeepers, reaching owners, pitching live.",
+    },
+    {
+      title: "Objection Handling",
+      description:
+        "Handled real objections including pricing concerns, existing vendor relationships, and timing hesitation — developed specific rebuttals grounded in ROI math and business outcomes.",
+    },
+    {
+      title: "Demo Building & Delivery",
+      description:
+        "Built custom demo websites for warm prospects before any commitment — sent live links during and after calls to accelerate trust and reduce friction.",
+    },
+    {
+      title: "Follow-Up Sequencing",
+      description:
+        "Executed structured multi-channel follow-up sequences across phone, Instagram DM, and text — tracked through a defined pipeline with status labels and follow-up dates.",
+    },
+    {
+      title: "CRM & Pipeline Management",
+      description:
+        "Built and maintained a Google Sheets CRM with 300+ prospects — used pivot tables and weighted lead scoring to prioritize outreach by category, review rating, and website status.",
+    },
+    {
+      title: "ROI Pitch Framework",
+      description:
+        "Calculated client break-even math live on calls — showing exactly how many new jobs or appointments cover the monthly fee — to handle price objections with data not emotion.",
+    },
+  ],
+  videoPlaceholder: {
+    label: "COLD CALL RECORDING",
+    text: "Real call. Real prospect. Real outcome.",
+    note: "Video coming soon",
+  },
+};
+
 // --- Projects Section ---
 export interface Project {
   category: string;
