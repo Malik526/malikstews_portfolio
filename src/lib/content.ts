@@ -10,7 +10,6 @@ export const nav = {
   name: "Malik Stewart",
   links: [
     { label: "Work", href: "#work" },
-    { label: "Capabilities", href: "#capabilities" },
     { label: "Contact", href: "#contact" },
   ],
   cta: { label: "Hire Me", href: "mailto:malik@moreclientsco.com" },
@@ -125,11 +124,6 @@ export const coldCalling = {
         "Calculated client break-even math live on calls — showing exactly how many new jobs or appointments cover the monthly fee — to handle price objections with data not emotion.",
     },
   ],
-  videoPlaceholder: {
-    label: "COLD CALL RECORDING",
-    text: "Real call. Real prospect. Real outcome.",
-    note: "Video coming soon",
-  },
 };
 
 // --- Projects Section ---

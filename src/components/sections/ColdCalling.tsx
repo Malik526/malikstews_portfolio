@@ -14,7 +14,7 @@ export interface ColdCallingProps {
   content?: ColdCallingContent;
 }
 
-// Renders outbound sales stats, activity details, and a future video placeholder.
+// Renders outbound sales stats and activity details.
 const ColdCalling: React.FC<ColdCallingProps> = ({ content = coldCalling }) => {
   return (
     <section className="bg-background py-16 lg:py-20" id="sales-outreach">
@@ -50,7 +50,7 @@ const ColdCalling: React.FC<ColdCallingProps> = ({ content = coldCalling }) => {
         </div>
 
         {/* --- Activities --- */}
-        <div className="grid gap-x-16 gap-y-8 lg:grid-cols-2 mb-12">
+        <div className="grid gap-x-16 gap-y-8 lg:grid-cols-2">
           {content.activities.map((activity) => (
             <article key={activity.title} className="border-l border-[#c8972a] pl-5">
               <h4 className="font-headline-md text-primary mb-2">{activity.title}</h4>
@@ -59,30 +59,6 @@ const ColdCalling: React.FC<ColdCallingProps> = ({ content = coldCalling }) => {
               </p>
             </article>
           ))}
-        </div>
-
-        {/* --- Video placeholder --- */}
-        <div className="flex min-h-[360px] flex-col items-center justify-center bg-primary px-6 py-16 text-center text-on-primary">
-          {/* TODO: Replace with video embed */}
-          <div className="mb-6 flex h-16 w-16 items-center justify-center border border-white/50">
-            <svg
-              aria-hidden="true"
-              className="h-7 w-7"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </div>
-          <p className="font-label-mono text-label-mono text-[#c8972a] mb-3">
-            {content.videoPlaceholder.label}
-          </p>
-          <p className="font-display-hero text-headline-md mb-2">
-            {content.videoPlaceholder.text}
-          </p>
-          <p className="font-body-md text-inverse-on-surface">
-            {content.videoPlaceholder.note}
-          </p>
         </div>
 
       </div>

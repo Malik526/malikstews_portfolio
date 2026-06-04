@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## [2026-06-04 14:51 EDT] — Archive Capabilities and Cold Call Recording
+
+### Summary
+Archived the Capabilities section from the live page and removed the cold call recording placeholder from the Sales & Outreach section.
+
+### Changes
+- Removed `<CapabilityAreas />` from the homepage render order.
+- Removed the Capabilities nav link so the header no longer points to an archived section.
+- Removed the cold call recording placeholder markup from `ColdCalling.tsx`.
+- Removed the unused `videoPlaceholder` content from `src/lib/content.ts`.
+- Removed `CapabilityAreas` from the sections barrel export while leaving the component file available for future restoration.
+
+### Verification
+- Ran `npm run build` successfully.
+- Confirmed the recording placeholder text and capabilities anchor are no longer present in active source paths.
+
+---
+
 ## [2026-06-04 13:16 EDT] — Cold Calling & Sales Experience Section
 
 ### Summary
