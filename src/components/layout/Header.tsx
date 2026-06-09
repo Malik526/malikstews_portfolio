@@ -6,6 +6,7 @@
  */
 
 import React from "react";
+import { Link } from "react-router-dom";
 import { nav } from "../../lib/content";
 import Button from "../ui/Button";
 
@@ -14,6 +15,9 @@ const scrollTo = (href: string) => {
   const el = document.querySelector(href);
   if (el) el.scrollIntoView({ behavior: "smooth" });
 };
+
+const navLinkClass =
+  "text-on-surface-variant hover:text-secondary transition-colors duration-300 font-body-md";
 
 const Header: React.FC = () => {
   return (
@@ -27,19 +31,27 @@ const Header: React.FC = () => {
 
         {/* --- Desktop nav links + CTA --- */}
         <div className="hidden md:flex items-center gap-8">
-          {nav.links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={(e) => {
-                e.preventDefault();
-                scrollTo(link.href);
-              }}
-              className="text-on-surface-variant hover:text-secondary transition-colors duration-300 font-body-md"
-            >
-              {link.label}
-            </a>
-          ))}
+          {nav.links.map((link) =>
+            link.href.startsWith("#") ? (
+              // Hash links: smooth-scroll within the single-page portfolio
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollTo(link.href);
+                }}
+                className={navLinkClass}
+              >
+                {link.label}
+              </a>
+            ) : (
+              // Path links (e.g. /lead-gen): use react-router client-side navigation
+              <Link key={link.label} to={link.href} className={navLinkClass}>
+                {link.label}
+              </Link>
+            )
+          )}
           <Button label={nav.cta.label} href={nav.cta.href} variant="primary" className="px-6 py-2" />
         </div>
 

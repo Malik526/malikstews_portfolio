@@ -5,6 +5,7 @@
  */
 
 import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 import type { FeaturedProjectData } from "../../data/featuredProjects";
 
 export interface FeaturedProjectProps extends FeaturedProjectData {
@@ -21,6 +22,7 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
   videoSrc,
   slug,
   frame,
+  links,
   index,
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -127,6 +129,35 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
             </div>
           ))}
         </dl>
+
+        {/* --- Optional CTA links rendered after project details --- */}
+        {links && links.length > 0 && (
+          <div className="mt-6 flex flex-wrap gap-4">
+            {links.map((link) =>
+              link.href.startsWith("http") ? (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 font-body-md text-body-md text-primary hover:text-secondary transition-colors underline decoration-secondary decoration-2"
+                >
+                  {link.label}
+                  <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                </a>
+              ) : (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  className="inline-flex items-center gap-2 font-body-md text-body-md text-primary hover:text-secondary transition-colors underline decoration-secondary decoration-2"
+                >
+                  {link.label}
+                  <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                </Link>
+              )
+            )}
+          </div>
+        )}
 
         <span className="sr-only">
           Project slug: {slug}

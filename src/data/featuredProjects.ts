@@ -55,6 +55,9 @@ export const featuredProjects = [
     outcome:
       "Turns local market research into prioritized outreach lists that can be worked systematically and tracked through a lightweight CRM process.",
     videoSrc: "/videos/featured/prospecting-tool/demo.mp4",
+    links: [
+      { label: "Try the Lead Generator (free tier)", href: "/lead-gen" },
+    ],
   },
   {
     slug: "firstmove",

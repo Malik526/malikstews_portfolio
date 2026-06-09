@@ -10,6 +10,7 @@ export const nav = {
   name: "Malik Stewart",
   links: [
     { label: "Work", href: "#work" },
+    { label: "Tools", href: "/lead-gen" },
     { label: "Contact", href: "#contact" },
   ],
   cta: { label: "Hire Me", href: "mailto:malik@moreclientsco.com" },
