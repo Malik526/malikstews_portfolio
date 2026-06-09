@@ -1,44 +1,22 @@
 /**
  * App.tsx
- * Root single-page application component.
- * Renders all sections in order: Header → page sections → Footer.
- * No router needed — this is a single-page portfolio with anchor scroll navigation.
+ * Root application component with client-side routing.
+ * Routes: "/" → PortfolioPage, "/lead-gen" → LeadGenPage.
  */
 
 import React from "react";
-import { Header, Footer } from "./components/layout";
-import {
-  Hero,
-  Ticker,
-  ColdCalling,
-  FeaturedProjects,
-  Approach,
-  OperationalExperience,
-  ContactCta,
-} from "./components/sections";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PortfolioPage from "./pages/PortfolioPage";
+import LeadGenPage from "./pages/LeadGenPage";
 
 const App: React.FC = () => {
   return (
-    <div className="text-on-surface selection:bg-secondary-fixed">
-
-      {/* --- Fixed top navigation --- */}
-      <Header />
-
-      {/* --- Page content below nav (pt-28 accounts for fixed header height) --- */}
-      <main className="pt-28">
-        <Hero />
-        <Ticker />
-        <ColdCalling />
-        <FeaturedProjects />
-        <Approach />
-        <OperationalExperience />
-        <ContactCta />
-      </main>
-
-      {/* --- Footer (no top margin per spec) --- */}
-      <Footer />
-
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<PortfolioPage />} />
+        <Route path="/lead-gen" element={<LeadGenPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
