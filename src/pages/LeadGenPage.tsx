@@ -1,7 +1,7 @@
 /**
  * LeadGenPage.tsx
  * Assembles all sections for the /lead-gen waitlist page.
- * Section order: Header → Hero → HowItWorks → FreePaidTable → SocialProof → WaitlistCta → Footer.
+ * Section order: Header -> Hero -> WaitlistCta -> FreePaidTable -> SocialProof -> Footer.
  * Uses LeadGenHeader and a minimal inline footer to keep branding consistent with malikstewart.com.
  */
 
@@ -9,7 +9,6 @@ import React from "react";
 import { LeadGenHeader } from "../components/layout";
 import {
   LeadGenHero,
-  HowItWorks,
   FreePaidTable,
   SocialProof,
   WaitlistCta,
@@ -53,10 +52,9 @@ const LeadGenPage: React.FC = () => {
       {/* --- Page content (pt-24 accounts for fixed header) --- */}
       <main className="pt-24">
         <LeadGenHero />
-        <HowItWorks />
+        <WaitlistCta />
         <FreePaidTable />
         <SocialProof />
-        <WaitlistCta />
       </main>
 
       <LeadGenFooter />
