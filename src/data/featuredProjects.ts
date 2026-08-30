@@ -18,6 +18,7 @@ export interface FeaturedProjectData {
   tech: string;
   outcome: string;
   videoSrc?: string;
+  videoFit?: "cover" | "contain";
   embed?: {
     type: "loom";
     src: string;
@@ -64,6 +65,7 @@ export const featuredProjects = [
     outcome:
       "Owned V1 from architecture through frontend, backend integrations, database design, debugging, deployment, and product iteration.",
     videoSrc: "/videos/featured/firstmove/demo.mp4",
+    videoFit: "contain",
     links: [{ label: "firstmove.dev", href: "https://firstmove.dev" }],
   },
   {

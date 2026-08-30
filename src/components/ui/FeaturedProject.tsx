@@ -20,6 +20,7 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
   tech,
   outcome,
   videoSrc,
+  videoFit = "cover",
   embed,
   slug,
   frame,
@@ -121,7 +122,7 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
             {/* Video files live in public/videos/featured/{project-slug}/demo.mp4. */}
             <video
               ref={videoRef}
-              className="h-full w-full object-cover"
+              className={`h-full w-full ${videoFit === "contain" ? "object-contain" : "object-cover"}`}
               controls
               playsInline
               preload="metadata"
