@@ -17,7 +17,16 @@ export interface FeaturedProjectData {
   solution: string;
   tech: string;
   outcome: string;
-  videoSrc: string;
+  videoSrc?: string;
+  embed?: {
+    type: "loom";
+    src: string;
+    title: string;
+  };
+  visual?: {
+    title: string;
+    items: string[];
+  };
   frame?: {
     type: "phone";
     src: string;
@@ -33,48 +42,91 @@ export const featuredProjects = [
   {
     slug: "moreclientsco",
     title: "MoreClientsCo Research Pipeline",
-    category: "AI Automation + Growth Systems",
+    category: "Python + Applied AI + GTM Systems",
     problem:
-      "Researching local businesses manually before outreach or website development is slow, inconsistent, and difficult to scale.",
+      "Researching local businesses manually before outreach or website development was slow, inconsistent, and difficult to scale.",
     solution:
-      "Built an AI-assisted research pipeline that transforms Google Maps business data and customer reviews into structured business briefs.",
-    tech: "Python · Claude API · Google Places API · JSON Workflows",
+      "Built an automated research pipeline that transforms public business data, customer reviews, and enrichment inputs into structured briefs for GTM execution.",
+    tech: "Python · Claude API · Google Places API · Google Sheets API · JSON Workflows",
     outcome:
-      "Transforms raw business data into sales-ready and website-ready research briefs, dramatically reducing manual discovery and preparation time.",
+      "Turns raw business data into sales-ready and website-ready research briefs while reducing manual discovery and preparation time.",
     videoSrc: "/videos/featured/moreclientsco/demo.mp4",
+  },
+  {
+    slug: "firstmove",
+    title: "FirstMove",
+    category: "Full-Stack Product",
+    problem:
+      "Most people know social confidence improves through practice, but struggle to stay consistent long enough to build momentum.",
+    solution:
+      "Built and deployed a full-stack behavior-change application with daily missions, repeatable tasks, XP, levels, streaks, commitment goals, and persistent user progress.",
+    tech: "React/Next.js · TypeScript · Node.js · Supabase/Postgres · Supabase Auth · OAuth · RLS",
+    outcome:
+      "Owned V1 from architecture through frontend, backend integrations, database design, debugging, deployment, and product iteration.",
+    videoSrc: "/videos/featured/firstmove/demo.mp4",
+    links: [{ label: "firstmove.dev", href: "https://firstmove.dev" }],
+  },
+  {
+    slug: "ai-agent-development-harness",
+    title: "AI Agent Development Harness",
+    category: "Agentic Engineering / Developer Infrastructure",
+    problem:
+      "Recurring AI-agent development work can become slow when global policies, project state, scripts, and verification context are mixed together manually.",
+    solution:
+      "Built reusable Skills, project instructions, persistent memory, and deterministic scripts so recurring AI-agent workflows can load the right context and delegate repeatable execution.",
+    tech: "Codex Skills · Project Instructions · Persistent Memory · Shell Scripts · Build/Test/Typecheck Validation",
+    outcome:
+      "Improved context efficiency and paired model reasoning with deterministic verification through tests, builds, type checks, linting, and validation scripts.",
+    visual: {
+      title: "Harness Layers",
+      items: [
+        "Global policy separated from project-specific state",
+        "Skills loaded only when relevant to the current workflow",
+        "Scripts and existing tools handle repeatable execution",
+        "Verification loops catch regressions before handoff",
+      ],
+    },
   },
   {
     slug: "prospecting-tool",
     title: "Service Business Prospecting Assistant",
-    category: "Internal Systems",
+    category: "Python + Google APIs",
     problem:
-      "Finding qualified local business leads manually requires significant searching, filtering, and organization.",
+      "Finding qualified local business leads manually requires significant searching, filtering, enrichment, and organization.",
     solution:
-      "Built a prospecting engine that discovers local service businesses, scores opportunities, removes duplicates, and organizes prospects into a structured outreach workflow.",
-    tech: "Python · Google Places API · Google Sheets API",
+      "Built a Python prospecting system that automated qualification and lead scoring across 4,000+ businesses by ingesting public business data, applying weighted scoring, scraping websites, and organizing qualified prospects through the Google Sheets API.",
+    tech: "Python · Claude API · Google Places API · Google Maps API · Google Sheets API · Website Scraping",
     outcome:
-      "Turns local market research into prioritized outreach lists that can be worked systematically and tracked through a lightweight CRM process.",
-    videoSrc: "/videos/featured/prospecting-tool/demo.mp4",
+      "Automated collection, enrichment, deduplication, and AI-assisted research so prospecting workflows could be prioritized and worked systematically.",
+    embed: {
+      type: "loom",
+      src: "https://www.loom.com/embed/40680343cb774aaca0a9ada5e9989503",
+      title: "Service Business Prospecting Assistant Loom demo",
+    },
     links: [
       { label: "Try the Lead Generator (free tier)", href: "/lead-gen" },
     ],
   },
   {
-    slug: "firstmove",
-    title: "FirstMove",
-    category: "Product + AI",
+    slug: "chef-gerry-catering",
+    title: "Chef Gerry Catering",
+    category: "Client GTM Systems",
     problem:
-      "Most people know social confidence improves through practice, but struggle to stay consistent long enough to build momentum.",
+      "A catering business needed practical acquisition infrastructure across web presence, inquiries, follow-up, and local visibility.",
     solution:
-      "Built a behavior-change application that turns social confidence into a daily training system using social reps, streaks, XP progression, reflection loops, and real-world connection tracking.",
-    tech: "Next.js · Supabase · Claude API",
+      "Built the company's website, inquiry workflows, lead tracking, Google Business presence, and automated email follow-up through Resend.",
+    tech: "Website Development · Lead Capture · Resend · Google Business Profile · Search Analytics · Outreach Workflows",
     outcome:
-      "Creates a structured habit loop that rewards consistency, tracks progress, and encourages gradual real-world exposure over time.",
-    videoSrc: "/videos/featured/firstmove/demo.mp4",
-    frame: {
-      type: "phone",
-      src: "/images/frames/iphone-frame.png",
-      alt: "iPhone frame for FirstMove demo video",
+      "Connected technical implementation with venue partnership prospecting, direct outreach, referral-channel development, and follow-up operations.",
+    visual: {
+      title: "Acquisition Infrastructure",
+      items: [
+        "Website and inquiry flow",
+        "Lead tracking and follow-up",
+        "Google Business presence",
+        "Referral and venue outreach support",
+      ],
     },
+    links: [{ label: "chefgerrycatering.com", href: "https://chefgerrycatering.com" }],
   },
 ] satisfies FeaturedProjectData[];

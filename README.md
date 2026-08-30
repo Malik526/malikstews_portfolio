@@ -1,10 +1,10 @@
-# Portfolio Rebuild
+# Malik Stewart Portfolio
 
-Clean local rebuild of Malik Stewart's systems-oriented portfolio.
+Clean local rebuild of Malik Stewart's engineering portfolio.
 
 Positioning:
 
-> Systems Builder Focused on Analytics, Automation & Operational Infrastructure
+> Full-Stack Engineer | GTM Systems | Applied AI & Automation
 
 This project is intentionally local-only for now. No GitHub remote or deployment has been configured.
 

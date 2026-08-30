@@ -12,6 +12,8 @@ const ExperienceEntry: React.FC<ExperienceItem> = ({
   company,
   dates,
   description,
+  bullets,
+  links,
   isLast = false,
 }) => {
   return (
@@ -27,10 +29,39 @@ const ExperienceEntry: React.FC<ExperienceItem> = ({
       {/* --- Company --- */}
       <p className="font-body-md text-secondary mb-3">{company}</p>
 
-      {/* --- Description --- */}
-      <p className="font-body-md text-on-surface-variant leading-relaxed">
-        {description}
-      </p>
+      {/* --- Description / resume bullets --- */}
+      {description && (
+        <p className="font-body-md text-on-surface-variant leading-relaxed">
+          {description}
+        </p>
+      )}
+
+      {bullets && bullets.length > 0 && (
+        <ul className="list-disc space-y-3 pl-5 font-body-md text-on-surface-variant">
+          {bullets.map((bullet) => (
+            <li key={bullet} className="leading-relaxed">
+              {bullet}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {links && links.length > 0 && (
+        <div className="mt-4 flex flex-wrap gap-4">
+          {links.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-body-md text-body-md text-primary underline decoration-secondary decoration-2 transition-colors hover:text-secondary"
+            >
+              {link.label}
+              <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </a>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

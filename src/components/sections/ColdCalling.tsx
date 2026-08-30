@@ -1,6 +1,6 @@
 /**
  * ColdCalling.tsx
- * Editorial sales experience section placed between capabilities and selected work.
+ * Customer and GTM experience section placed after technical work.
  * Props: accepts optional ColdCallingProps.content for reusable rendering; defaults to portfolio content.
  * Depends on Tailwind design tokens and local portfolio content.
  */

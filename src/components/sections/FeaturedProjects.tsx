@@ -1,6 +1,6 @@
 /**
  * FeaturedProjects.tsx
- * Recent Systems & Automations section.
+ * Engineering Projects & Systems section.
  * Renders the three featured video projects.
  * Spacing: py-16 lg:py-20 (reduced from py-32 lg:py-40 per spec).
  */

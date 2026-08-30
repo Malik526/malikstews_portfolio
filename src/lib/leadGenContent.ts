@@ -37,8 +37,8 @@ export const pricingComparison = {
 // --- Social proof / credibility ---
 export const socialProof = {
   label: "WHO BUILT THIS",
-  headline: "Built by an operator, not a developer.",
-  bio: "Malik Stewart runs MoreClientsCo, a growth agency that builds lead generation systems for local service businesses. This tool was built out of direct client work — not a side project idea.",
+  headline: "Built by a full-stack engineer and GTM operator.",
+  bio: "Malik Stewart builds full-stack products, GTM systems, automation, and applied AI workflows. This tool was built out of direct client work - not a side project idea.",
   stats: [
     { value: "50+", label: "Business sequences generated" },
     { value: "2", label: "Waitlist signups from first outreach" },

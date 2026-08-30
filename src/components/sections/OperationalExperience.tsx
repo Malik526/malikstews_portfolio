@@ -11,7 +11,7 @@ import ExperienceEntry from "../ui/ExperienceEntry";
 
 const OperationalExperience: React.FC = () => {
   return (
-    <section className="bg-surface-container-low py-16">
+    <section className="bg-surface-container-low py-16" id="experience">
       <div className="max-w-max-width mx-auto px-margin-desktop">
         <div className="grid lg:grid-cols-12 gap-12">
 

@@ -9,10 +9,11 @@ import { Header, Footer } from "../components/layout";
 import {
   Hero,
   Ticker,
+  CapabilityAreas,
   ColdCalling,
   FeaturedProjects,
-  Approach,
   OperationalExperience,
+  TechnicalProfile,
   ContactCta,
 } from "../components/sections";
 
@@ -27,10 +28,11 @@ const PortfolioPage: React.FC = () => {
       <main className="pt-28">
         <Hero />
         <Ticker />
-        <ColdCalling />
+        <CapabilityAreas />
         <FeaturedProjects />
-        <Approach />
         <OperationalExperience />
+        <ColdCalling />
+        <TechnicalProfile />
         <ContactCta />
       </main>
 

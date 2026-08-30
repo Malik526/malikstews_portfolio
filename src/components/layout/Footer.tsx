@@ -28,17 +28,21 @@ const Footer: React.FC = () => {
 
         {/* --- Links --- */}
         <div className="flex gap-6">
-          {footer.links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-on-surface-variant hover:text-primary transition-all underline decoration-secondary decoration-2 font-body-md"
-            >
-              {link.label}
-            </a>
-          ))}
+          {footer.links.map((link) => {
+            const isExternal = link.href.startsWith("http");
+
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
+                className="text-on-surface-variant hover:text-primary transition-all underline decoration-secondary decoration-2 font-body-md"
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </div>
 
       </div>

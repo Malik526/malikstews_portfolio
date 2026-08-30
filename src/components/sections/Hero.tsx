@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
             <img
               ref={imgRef}
               src="/assets/images/profile/malik_profile_web.webp"
-              alt="Malik Stewart — Systems Builder & AI Automation Specialist"
+              alt="Malik Stewart - Full-Stack Engineer, GTM Systems, Applied AI and Automation"
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
             />
           </div>

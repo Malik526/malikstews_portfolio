@@ -5,11 +5,12 @@
 
 export { default as Hero } from "./Hero";
 export { default as Ticker } from "./Ticker";
+export { default as CapabilityAreas } from "./CapabilityAreas";
 export { default as ColdCalling } from "./ColdCalling";
 export { default as FeaturedProjects } from "./FeaturedProjects";
 export { default as FeaturedProjectsSection } from "./FeaturedProjectsSection";
-export { default as Approach } from "./Approach";
 export { default as OperationalExperience } from "./OperationalExperience";
+export { default as TechnicalProfile } from "./TechnicalProfile";
 export { default as ContactCta } from "./ContactCta";
 export { default as LeadGenHero } from "./LeadGenHero";
 export { default as FreePaidTable } from "./FreePaidTable";

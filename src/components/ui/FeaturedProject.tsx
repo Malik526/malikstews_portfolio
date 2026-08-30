@@ -20,11 +20,14 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
   tech,
   outcome,
   videoSrc,
+  embed,
   slug,
   frame,
   links,
+  visual,
   index,
 }) => {
+  const mediaRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const projectNumber = typeof index === "number" ? String(index + 1).padStart(2, "0") : null;
   const details = [
@@ -36,29 +39,35 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
 
   const openFullscreen = async () => {
     const video = videoRef.current;
-    if (!video) return;
+    const media = mediaRef.current;
+    if (!video && !media) return;
 
     const fullscreenVideo = video as HTMLVideoElement & {
       webkitEnterFullscreen?: () => void;
     };
 
     try {
-      if (video.requestFullscreen) {
+      if (video?.requestFullscreen) {
         await video.requestFullscreen();
         return;
       }
 
-      if (fullscreenVideo.webkitEnterFullscreen) {
+      if (fullscreenVideo?.webkitEnterFullscreen) {
         fullscreenVideo.webkitEnterFullscreen();
+        return;
+      }
+
+      if (media?.requestFullscreen) {
+        await media.requestFullscreen();
       }
     } catch (error) {
-      console.error("Unable to open project video fullscreen:", error);
+      console.error("Unable to open project media fullscreen:", error);
     }
   };
 
   const fullscreenButton = (
     <button
-      aria-label={`Open ${title} video fullscreen`}
+      aria-label={`Open ${title} media fullscreen`}
       className="absolute right-3 top-3 z-20 flex h-9 w-9 items-center justify-center bg-white/90 text-primary shadow-sm transition-colors hover:bg-white"
       onClick={openFullscreen}
       type="button"
@@ -69,8 +78,17 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
 
   return (
     <article className="grid gap-8 border-t border-surface-variant py-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-      <div className={frame?.type === "phone" ? "relative flex justify-center bg-surface-variant py-6" : "relative aspect-video overflow-hidden bg-surface-variant"}>
-        {frame?.type === "phone" ? (
+      <div
+        ref={mediaRef}
+        className={
+          frame?.type === "phone"
+            ? "relative flex justify-center bg-surface-variant py-6"
+            : visual
+              ? "relative min-h-[320px] overflow-hidden bg-surface-variant p-6 lg:aspect-video"
+              : "relative aspect-video overflow-hidden bg-surface-variant"
+        }
+      >
+        {frame?.type === "phone" && videoSrc ? (
           <div className="relative aspect-[9/19] w-full max-w-[280px] overflow-hidden rounded-[36px] bg-black">
             {/* FirstMove only: phone frame assets belong in public/images/frames/. */}
             <video
@@ -89,7 +107,16 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
               src={frame.src}
             />
           </div>
-        ) : (
+        ) : embed ? (
+          <iframe
+            src={embed.src}
+            title={embed.title}
+            frameBorder="0"
+            allow="fullscreen; picture-in-picture"
+            allowFullScreen
+            className="absolute inset-0 h-full w-full"
+          />
+        ) : videoSrc ? (
           <>
             {/* Video files live in public/videos/featured/{project-slug}/demo.mp4. */}
             <video
@@ -103,8 +130,29 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
               Your browser does not support the video tag.
             </video>
           </>
-        )}
-        {fullscreenButton}
+        ) : visual ? (
+          <div className="flex h-full min-h-[272px] flex-col justify-center">
+            <p className="mb-5 font-label-mono text-label-mono uppercase text-secondary">
+              {visual.title}
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {visual.items.map((item, itemIndex) => (
+                <div
+                  key={item}
+                  className="border-l border-primary bg-white/60 p-4"
+                >
+                  <span className="mb-2 block font-label-mono text-label-mono text-outline">
+                    {String(itemIndex + 1).padStart(2, "0")}
+                  </span>
+                  <p className="font-body-md text-body-sm leading-relaxed text-primary">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
+        {(videoSrc || embed || visual) && fullscreenButton}
       </div>
 
       <div>

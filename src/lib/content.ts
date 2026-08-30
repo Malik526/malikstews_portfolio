@@ -10,119 +10,120 @@ export const nav = {
   name: "Malik Stewart",
   links: [
     { label: "Work", href: "#work" },
+    { label: "Experience", href: "#experience" },
     { label: "Tools", href: "/lead-gen" },
     { label: "Contact", href: "#contact" },
   ],
-  cta: { label: "Hire Me", href: "mailto:malik@moreclientsco.com" },
+  cta: { label: "Contact", href: "mailto:malik23stewart23@gmail.com" },
 };
 
 // --- Hero Section ---
 export const hero = {
-  label: "AVAILABLE FOR OPPORTUNITIES",
+  label: "FULL-STACK ENGINEER | GTM SYSTEMS | APPLIED AI & AUTOMATION",
   name: "Malik Stewart",
-  title: "Systems Builder & AI Automation Specialist",
-  bio: "I build systems that solve real business problems — and I communicate them clearly enough that the people who need them actually use them.",
-  cta1: { label: "View Work", href: "#work" },
-  cta2: { label: "Get In Touch", href: "#contact" },
+  title: "Full-stack engineer building products, automation, and AI-powered systems.",
+  bio: "I build full-stack products, GTM systems, automation, and applied AI workflows - from frontend experiences and APIs to databases, integrations, and agentic development systems.",
+  cta1: { label: "View Projects", href: "#work" },
+  cta2: { label: "LinkedIn", href: "https://www.linkedin.com/in/malik-stewart-abb2a1121/" },
   // TODO: replace with real photo
   photo: "https://placehold.co/480x600/e8e7ef/444652?text=Photo+Coming+Soon",
-  badge: "CS & Business Graduate · Charleston Southern University",
+  badge: "Applied Computing, Business Concentration · Charleston Southern University",
 };
 
 // --- Ticker Banner ---
 export const ticker = {
   items: [
-    "Systems Thinking",
-    "AI Automation",
-    "Growth Infrastructure",
-    "Operational Execution",
-    "Cross-functional Communication",
-    "Problem Solving",
-    "Analytics",
+    "Full-Stack Engineering",
+    "Applied AI",
+    "GTM Systems",
+    "Python Automation",
+    "React + Next.js",
+    "FastAPI + AWS Lambda",
+    "Supabase + PostgreSQL",
     "Build. Deploy. Deliver.",
   ],
 };
 
 // --- Capabilities Section ---
 export const capabilities = {
-  label: "CAPABILITIES",
-  tagline: "Technical precision meets human-centered design.",
+  label: "TECHNICAL SUMMARY",
+  tagline: "Engineering systems that connect product, automation, data, and real customer workflows.",
   items: [
     {
-      icon: "hub",
-      title: "AI Automation & Pipelines",
+      icon: "code",
+      title: "Full-Stack Product Engineering",
       description:
-        "Building end-to-end AI agent workflows using Claude API, Google Maps API, and orchestration tools. From research pipelines to lead generation systems to automated growth infrastructure.",
+        "Building deployed applications with React, Next.js, TypeScript, Node.js, Supabase/Postgres, authentication, relational schemas, API integrations, and production debugging.",
     },
     {
       icon: "bolt",
-      title: "Growth Systems & Infrastructure",
+      title: "GTM Systems & Automation",
       description:
-        "Designing and building the operational backbone of growing businesses — lead capture, CRM architecture, automated follow-ups, referral systems, and client acquisition pipelines.",
+        "Designing prospecting, enrichment, scoring, CRM, lead capture, follow-up, and reporting workflows that turn messy business data into usable operating systems.",
     },
     {
-      icon: "visibility",
-      title: "Analytics & Decision Systems",
+      icon: "hub",
+      title: "Applied AI & Agentic Engineering",
       description:
-        "Translating raw data into actionable business intelligence. ROI modeling, performance dashboards, and decision-support tools that help operators move faster with more confidence.",
+        "Pairing AI-assisted reasoning with deterministic scripts, tests, builds, linting, type checks, and validation so recurring workflows become faster and more reliable.",
     },
   ],
 };
 
 // --- Cold Calling & Sales Experience Section ---
 export const coldCalling = {
-  label: "SALES & OUTREACH",
-  headline: "Real Outbound Sales. Real Objections. Real Pipeline.",
+  label: "CUSTOMER & GTM EXPERIENCE",
+  headline: "Technical work meets the real market.",
   subheadline:
-    "Before building systems I had to sell them. I run the full outbound sales cycle independently — from prospecting to cold call to demo to follow-up.",
+    "The engineering work is grounded in live customer acquisition: discovery, objection handling, demo delivery, follow-up, and pipeline ownership.",
   stats: [
     {
-      number: "300+",
-      label: "Prospects Researched",
+      number: "100+",
+      label: "Outbound Calls",
     },
     {
-      number: "18",
-      label: "Business Categories Targeted",
+      number: "150+",
+      label: "Campaign Emails",
     },
     {
-      number: "Multi-Channel",
-      label: "Phone · DM · Text Follow-Up",
+      number: "6",
+      label: "Qualified Meetings",
     },
     {
-      number: "Live",
-      label: "Objection Handling On Every Call",
+      number: "2",
+      label: "Paying Clients",
     },
   ],
   activities: [
     {
-      title: "Cold Calling",
+      title: "Discovery & Outreach",
       description:
-        "Outbound calls to local service businesses with no website — electricians, med spas, HVAC, plumbers, photographers. Working through gatekeepers, reaching owners, pitching live.",
+        "Ran outbound calls and campaign emails to local service businesses, reaching owners, qualifying pain points, and validating whether the systems solved real acquisition problems.",
     },
     {
       title: "Objection Handling",
       description:
-        "Handled real objections including pricing concerns, existing vendor relationships, and timing hesitation — developed specific rebuttals grounded in ROI math and business outcomes.",
+        "Handled pricing concerns, existing vendor relationships, and timing hesitation with ROI math, business outcomes, and concrete demos instead of abstract claims.",
     },
     {
       title: "Demo Building & Delivery",
       description:
-        "Built custom demo websites for warm prospects before any commitment — sent live links during and after calls to accelerate trust and reduce friction.",
+        "Built and delivered custom demo experiences for prospects so technical value could be evaluated through working examples.",
     },
     {
-      title: "Follow-Up Sequencing",
+      title: "Follow-Up Systems",
       description:
-        "Executed structured multi-channel follow-up sequences across phone, Instagram DM, and text — tracked through a defined pipeline with status labels and follow-up dates.",
+        "Created structured follow-up across phone, email, text, and pipeline tracking so customer-facing work was measurable and repeatable.",
     },
     {
       title: "CRM & Pipeline Management",
       description:
-        "Built and maintained a Google Sheets CRM with 300+ prospects — used pivot tables and weighted lead scoring to prioritize outreach by category, review rating, and website status.",
+        "Maintained Google Sheets-based CRM workflows with scoring, deduplication, status labels, and follow-up dates to prioritize outreach.",
     },
     {
       title: "ROI Pitch Framework",
       description:
-        "Calculated client break-even math live on calls — showing exactly how many new jobs or appointments cover the monthly fee — to handle price objections with data not emotion.",
+        "Translated technical features into business terms by showing how websites, follow-up, and acquisition systems connect to revenue opportunities.",
     },
   ],
 };
@@ -137,48 +138,48 @@ export interface Project {
 }
 
 export const projects = {
-  label: "SELECTED WORK",
-  heading: "Recent Systems & Automations",
+  label: "SELECTED ENGINEERING WORK",
+  heading: "Engineering Projects & Systems",
   items: [
     {
-      category: "AI AUTOMATION + GROWTH SYSTEMS",
+      category: "PYTHON + APPLIED AI + GTM SYSTEMS",
       title: "MoreClientsCo Growth Pipeline",
       description:
-        "A fully automated growth system for a local service business agency — AI research agents, lead generation pipeline, Supabase CRM, and automated follow-up sequences.",
+        "Python, API, data, and automation systems for local service business acquisition, with AI-assisted research and structured outputs for GTM execution.",
       // TODO: replace with real screenshot
       image: "https://placehold.co/480x480/eeedf5/444652?text=MoreClientsCo",
     },
     {
-      category: "INTERNAL SYSTEMS",
+      category: "PYTHON + GOOGLE APIS",
       title: "Service Business Prospecting Assistant",
       description:
-        "Python + Google Maps API pipeline that identifies, scores, and organizes local service business leads automatically. Writes structured data to Google Sheets with real-time deduplication.",
+        "Python prospecting system that ingests public business data, scores leads, scrapes websites, deduplicates records, and organizes prospects through Google Sheets.",
       // TODO: replace with real screenshot
       image: "https://placehold.co/480x480/eeedf5/444652?text=Prospecting+Tool",
     },
     {
-      category: "PRODUCT · AI",
+      category: "FULL-STACK PRODUCT",
       title: "FirstMove",
       description:
-        "A behavior-change product system built on Next.js and Supabase that turns social confidence into a low-friction daily habit loop using streak logic and Claude API.",
+        "Deployed full-stack product using React/Next.js, TypeScript, Supabase/Postgres, authentication, persistent progress, and AI-assisted engineering workflows.",
       // TODO: replace with real screenshot
       image: "https://placehold.co/480x480/eeedf5/444652?text=FirstMove",
     },
     {
-      category: "AUTOMATION · AI",
-      title: "Job Automation Tool",
+      category: "AGENTIC ENGINEERING",
+      title: "AI Agent Development Harness",
       description:
-        "Workflow automation system for organizing job search pipelines — uses AI to parse job descriptions, extract requirements, and match against candidate profile.",
+        "Reusable Skills, project instructions, persistent memory, deterministic scripts, and verification workflows for recurring AI-agent development work.",
       // TODO: replace with real screenshot
-      image: "https://placehold.co/480x480/eeedf5/444652?text=Job+Automation",
+      image: "https://placehold.co/480x480/eeedf5/444652?text=Agent+Harness",
     },
     {
-      category: "CLIENT SYSTEMS",
-      title: "Home Chef Jerry",
+      category: "CLIENT GTM SYSTEMS",
+      title: "Chef Gerry Catering",
       description:
-        "A client-facing growth system for a personal chef service — lead capture, service positioning, inquiry workflow, and CRM foundation.",
+        "Client acquisition infrastructure for a catering business, including website, inquiry workflows, lead tracking, Google Business presence, and Resend follow-up automation.",
       // TODO: replace with real screenshot
-      image: "https://placehold.co/480x480/eeedf5/444652?text=Home+Chef+Jerry",
+      image: "https://placehold.co/480x480/eeedf5/444652?text=Chef+Gerry",
     },
     {
       category: "ANALYTICS",
@@ -191,82 +192,100 @@ export const projects = {
   ] satisfies Project[],
 };
 
-// --- Principles Section ---
-export const principles = {
-  label: "THE OPERATING PHILOSOPHY",
-  heading: "Four principles that guide every build.",
-  subtext:
-    "Systems are only as good as the adoption they receive. I prioritize the human element as much as the technical infrastructure.",
-  items: [
-    {
-      number: "01",
-      title: "Start With The Operating Problem",
-      body: "Find the repeated friction: missed follow-ups, manual steps, weak visibility, unclear ownership, or inconsistent decisions.",
-    },
-    {
-      number: "02",
-      title: "Turn Workflow Into Structure",
-      body: "Create a data model, repeatable process, or lightweight tool that makes the next action obvious.",
-    },
-    {
-      number: "03",
-      title: "Automate After The Logic Is Clear",
-      body: "Automation works best when the rules, exceptions, and handoff points are understood first.",
-    },
-    {
-      number: "04",
-      title: "Use Analytics To Improve Judgment",
-      body: "Dashboards and models should help someone decide, prioritize, or explain tradeoffs — not just display data.",
-    },
-  ],
-};
-
 // --- Experience Section ---
 export interface ExperienceItem {
   title: string;
   company: string;
   dates: string;
-  description: string;
+  description?: string;
+  bullets?: string[];
+  links?: { label: string; href: string }[];
   isLast?: boolean;
 }
 
 export const experience = {
   label: "EXPERIENCE",
-  heading: "A career built on operational excellence.",
+  heading: "Engineering work tied to deployed products and business outcomes.",
   items: [
     {
-      title: "Founder",
+      title: "Founding Engineer",
       company: "MoreClientsCo",
-      dates: "2026 — PRESENT",
-      description:
-        "Building a growth systems agency for local service businesses. Custom websites, AI research pipelines, Supabase CRM, automated follow-ups, and referral systems that help service businesses get more clients without doing more work.",
+      dates: "MAY 2026 - PRESENT",
+      bullets: [
+        "Automated qualification and lead scoring for 4,000+ businesses by building a Python prospecting system that ingests public business data, applies weighted scoring, and organizes qualified prospects through the Google Sheets API and website scraping.",
+        "Saved 20+ hours of manual prospecting and 8+ hours of research by engineering automated collection, enrichment, deduplication, and an AI research pipeline using Claude and Google Places APIs.",
+        "Built a SaaS layer around the prospecting system using FastAPI endpoints deployed through AWS Lambda and a frontend application exposing prospecting, enrichment, and scoring workflows.",
+        "Validated the system through real-world GTM execution across 100+ outbound calls, 150+ campaign emails, 6 qualified meetings, and 2 paying clients worth $2,500 total.",
+      ],
     },
     {
-      title: "Security Professional",
-      company: "IBS Security → The Peninsula New York",
-      dates: "CURRENT",
-      description:
-        "Contract security professional placed at The Peninsula New York — a five-star luxury property. High-touch operations, professional discretion, and real-time problem solving in a high-stakes environment.",
+      title: "Founder / Full-Stack Engineer",
+      company: "FirstMove",
+      dates: "AUG 2025 - PRESENT",
+      bullets: [
+        "Built and deployed a full-stack application using React/Next.js, TypeScript, Node.js, Supabase/Postgres, and AI-assisted engineering workflows.",
+        "Designed daily missions, repeatable tasks, XP, levels, streaks, commitment goals, and persistent user progress.",
+        "Implemented authentication and backend architecture using relational schemas, Supabase Auth, OAuth, user-linked records, and Row Level Security.",
+        "Owned V1 from architecture through frontend, backend integrations, database design, debugging, deployment, and product iteration.",
+      ],
+      links: [{ label: "firstmove.dev", href: "https://firstmove.dev" }],
     },
     {
-      title: "Founder",
-      company: "Vintek (Discontinued)",
-      dates: "2022",
+      title: "Go-to-Market Consultant | Growth Systems",
+      company: "Chef Gerry Catering | Freelance",
+      dates: "MAY 2026 - PRESENT",
       description:
-        "Founded and operated an online retail business selling custom mechanical keyboards. Handled product design, logistics, photography, marketing, and Shopify management solo.",
+        "Built the company's digital acquisition infrastructure by developing its website, inquiry workflows, lead tracking, Google Business presence, and automated email follow-up through Resend. Supported venue partnership prospecting, direct outreach, referral-channel development, follow-up, and website/search analytics.",
+      links: [{ label: "chefgerrycatering.com", href: "https://chefgerrycatering.com" }],
+    },
+    {
+      title: "Hospitality Officer",
+      company: "The Peninsula New York & Faena New York (via IPS Security)",
+      dates: "APR 2022 - JUL 2026",
+      description:
+        "Operated in five-star luxury environments serving executives, public figures, and international clientele.",
       isLast: true,
     },
   ] satisfies ExperienceItem[],
 };
 
+// --- Technical Profile Section ---
+export const technicalProfile = {
+  label: "SKILLS & EDUCATION",
+  heading: "Current technical stack and academic background.",
+  skillGroups: [
+    {
+      title: "Languages",
+      items: ["Python", "TypeScript", "JavaScript", "SQL"],
+    },
+    {
+      title: "Frontend & Product",
+      items: ["React", "Next.js", "Tailwind CSS", "VS Code"],
+    },
+    {
+      title: "Backend & Data",
+      items: ["Node.js", "FastAPI", "Supabase", "PostgreSQL", "AWS Lambda", "REST APIs"],
+    },
+    {
+      title: "APIs & Operations",
+      items: ["Claude API", "Google Places API", "Google Maps API", "Google Sheets API", "Resend", "Git / GitHub", "Netlify"],
+    },
+  ],
+  education: {
+    degree: "Bachelor of Arts - Applied Computing, Business Concentration",
+    school: "Charleston Southern University",
+    date: "May 2025",
+  },
+};
+
 // --- Contact Section ---
 export const contact = {
   label: "PROJECT INQUIRIES & OPPORTUNITIES",
-  heading: "Let's build something that actually works.",
-  body: "I'm open to full-time roles, contracts, and collaborations where systems thinking and AI automation create real business impact.",
-  email: "malik@moreclientsco.com",
+  heading: "Let's build useful systems.",
+  body: "I'm open to full-time engineering roles, technical projects, and collaborations where products, automation, and applied AI create measurable business impact.",
+  email: "malik23stewart23@gmail.com",
   links: [
-    { label: "LINKEDIN", href: "https://linkedin.com/in/malikstewart" },
+    { label: "LINKEDIN", href: "https://www.linkedin.com/in/malik-stewart-abb2a1121/" },
     { label: "GITHUB", href: "https://github.com/malik526" },
   ],
 };
@@ -274,11 +293,11 @@ export const contact = {
 // --- Footer ---
 export const footer = {
   name: "Malik Stewart",
-  tagline: "Built with purpose.",
+  tagline: "Full-Stack Engineer | GTM Systems | Applied AI & Automation",
   copyright: "© 2026 Malik Stewart",
   links: [
-    { label: "LinkedIn", href: "https://linkedin.com/in/malikstewart" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/malik-stewart-abb2a1121/" },
     { label: "GitHub", href: "https://github.com/malik526" },
-    { label: "MoreClientsCo", href: "https://moreclientsco.com" },
+    { label: "Email", href: "mailto:malik23stewart23@gmail.com" },
   ],
 };

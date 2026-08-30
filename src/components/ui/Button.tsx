@@ -41,8 +41,15 @@ const Button: React.FC<ButtonProps> = ({
 
   // Render anchor if href provided, otherwise button
   if (href) {
+    const isExternal = href.startsWith("http");
+
     return (
-      <a href={href} className={`${styles} ${className}`}>
+      <a
+        href={href}
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noopener noreferrer" : undefined}
+        className={`${styles} ${className}`}
+      >
         {content}
       </a>
     );
