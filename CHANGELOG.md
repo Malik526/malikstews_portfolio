@@ -1,5 +1,24 @@
 # CHANGELOG
 
+## [2026-08-30 16:33 EDT] — Engineering Portfolio Repositioning and FirstMove Video Fit
+
+### Summary
+Repositioned the portfolio around full-stack engineering, GTM systems, and applied AI/automation, then fixed the FirstMove project demo so its vertical product video is preserved instead of cropped.
+
+### Changes
+- Updated portfolio positioning, metadata, README copy, site content, hero copy, contact email, LinkedIn URL, footer copy, and supporting GTM language to lead with Malik's engineering story.
+- Reordered the homepage so technical capabilities and engineering projects appear before operational/customer-facing experience.
+- Added `src/components/sections/TechnicalProfile.tsx` and related content for skills and education.
+- Reworked featured projects around engineering systems including MoreClientsCo, FirstMove, the AI Agent Development Harness, the prospecting assistant, and Chef Gerry Catering.
+- Updated reusable project rendering in `src/components/ui/FeaturedProject.tsx` to support video, Loom embeds, visual-only project summaries, links, and configurable video fit behavior.
+- Added `videoFit: "contain"` for the FirstMove featured project so its vertical demo displays without unwanted cropping.
+- Removed the old Approach section from the active section exports and homepage flow.
+
+### Verification
+- Ran `npm run build` successfully after documenting the August 30 changes.
+
+---
+
 ## [2026-06-04 14:51 EDT] — Archive Capabilities and Cold Call Recording
 
 ### Summary
