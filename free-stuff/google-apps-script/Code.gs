@@ -17,7 +17,7 @@ var RESOURCES = {
 };
 
 var SHEET_NAME = "Subscribers";
-var HEADER_ROW = ["Name", "Email", "Resource", "Created At", "Last Downloaded At"];
+var HEADER_ROW = ["Name", "Email", "Resources", "Created At", "Last Downloaded At"];
 
 function doPost(e) {
   try {
@@ -48,9 +48,10 @@ function doPost(e) {
         sheet.getRange(rowNumber, 5).setValue(now); // Last Downloaded At
 
         var existingResources = String(data[i][2] || "");
-        if (existingResources.indexOf(resourceName) === -1) {
-          var updatedResources = existingResources ? existingResources + ", " + resourceName : resourceName;
-          sheet.getRange(rowNumber, 3).setValue(updatedResources);
+        var resourceList = existingResources ? existingResources.split(",").map(function (value) { return value.trim(); }) : [];
+        if (resourceList.indexOf(resourceName) === -1) {
+          resourceList.push(resourceName);
+          sheet.getRange(rowNumber, 3).setValue(resourceList.join(", "));
         }
 
         return jsonResponse({ ok: true, status: "existing" });

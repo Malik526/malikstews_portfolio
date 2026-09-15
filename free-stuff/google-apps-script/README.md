@@ -39,10 +39,11 @@ into the Apps Script editor. After changing `Code.gs`:
 
 ## Sheet columns
 
-| Name | Email | Resource | Created At | Last Downloaded At |
+| Name | Email | Resources | Created At | Last Downloaded At |
 |---|---|---|---|---|
 
 One row per unique (lowercased, trimmed) email address. Re-downloading an
-existing resource updates `Last Downloaded At` in place rather than adding a
-row; downloading a second resource appends it to the `Resource` cell instead
-of creating a second subscriber row.
+already-claimed resource updates `Last Downloaded At` in place rather than
+adding a row; claiming a different resource appends it to the `Resources`
+cell (comma-separated, e.g. `AI Coding Harness, Codex Skills`) instead of
+creating a second subscriber row.
