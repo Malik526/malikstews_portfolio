@@ -8,6 +8,15 @@ export const freeStuffMeta = {
   description: "Tools, systems, and resources I actually use while building software and working with AI agents.",
 };
 
+// Shared "back" nav target for every individual /free-stuff/* resource page —
+// their parent is the resource library, not the portfolio home. Pass this to
+// LeadGenHeader's backLabel/backHref props so a new resource page never has
+// to hard-code portfolio-home back navigation.
+export const freeStuffParentNav = {
+  backLabel: "Back to Free Stuff",
+  backHref: "/free-stuff",
+};
+
 export const freeStuffHero = {
   label: "FREE STUFF",
   headline: "Tools, systems, and resources I actually use.",

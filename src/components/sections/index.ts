@@ -5,7 +5,6 @@
 
 export { default as Hero } from "./Hero";
 export { default as Ticker } from "./Ticker";
-export { default as CapabilityAreas } from "./CapabilityAreas";
 export { default as ColdCalling } from "./ColdCalling";
 export { default as FeaturedProjects } from "./FeaturedProjects";
 export { default as FeaturedProjectsSection } from "./FeaturedProjectsSection";

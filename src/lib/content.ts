@@ -44,32 +44,6 @@ export const ticker = {
   ],
 };
 
-// --- Capabilities Section ---
-export const capabilities = {
-  label: "TECHNICAL SUMMARY",
-  tagline: "Engineering systems that connect product, automation, data, and real customer workflows.",
-  items: [
-    {
-      icon: "code",
-      title: "Full-Stack Product Engineering",
-      description:
-        "Building deployed applications with React, Next.js, TypeScript, Node.js, Supabase/Postgres, authentication, relational schemas, API integrations, and production debugging.",
-    },
-    {
-      icon: "bolt",
-      title: "GTM Systems & Automation",
-      description:
-        "Designing prospecting, enrichment, scoring, CRM, lead capture, follow-up, and reporting workflows that turn messy business data into usable operating systems.",
-    },
-    {
-      icon: "hub",
-      title: "Applied AI & Agentic Engineering",
-      description:
-        "Pairing AI-assisted reasoning with deterministic scripts, tests, builds, linting, type checks, and validation so recurring workflows become faster and more reliable.",
-    },
-  ],
-};
-
 // --- Cold Calling & Sales Experience Section ---
 export const coldCalling = {
   label: "CUSTOMER & GTM EXPERIENCE",
