@@ -11,7 +11,7 @@ import { footer } from "../../lib/content";
 const Footer: React.FC = () => {
   return (
     <footer className="bg-surface-container-low">
-      <div className="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-12 max-w-max-width mx-auto gap-6">
+      <div className="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop py-12 max-w-max-width mx-auto gap-6">
 
         {/* --- Brand --- */}
         <div>

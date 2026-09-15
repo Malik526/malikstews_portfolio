@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="max-w-max-width mx-auto px-margin-desktop mb-12 lg:mb-20">
+    <section className="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop mb-12 lg:mb-20">
       <div className="grid lg:grid-cols-12 gap-12 items-center">
 
         {/* --- Left column: text --- */}

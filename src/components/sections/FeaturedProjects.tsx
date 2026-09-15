@@ -12,7 +12,7 @@ import FeaturedProjectsSection from "./FeaturedProjectsSection";
 const FeaturedProjects: React.FC = () => {
   return (
     <section className="bg-white py-16 lg:py-20" id="work">
-      <div className="max-w-max-width mx-auto px-margin-desktop">
+      <div className="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
 
         {/* --- Section header row --- */}
         <div className="flex justify-between items-end mb-10">

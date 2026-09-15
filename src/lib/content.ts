@@ -11,10 +11,10 @@ export const nav = {
   links: [
     { label: "Work", href: "#work" },
     { label: "Experience", href: "#experience" },
-    { label: "Tools", href: "/lead-gen" },
+    { label: "Free Stuff", href: "/free-stuff" },
     { label: "Contact", href: "#contact" },
   ],
-  cta: { label: "Contact", href: "mailto:malik23stewart23@gmail.com" },
+  cta: { label: "Email Me", href: "mailto:malik23stewart23@gmail.com" },
 };
 
 // --- Hero Section ---

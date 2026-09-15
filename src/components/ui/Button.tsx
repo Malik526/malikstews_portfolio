@@ -48,6 +48,7 @@ const Button: React.FC<ButtonProps> = ({
         href={href}
         target={isExternal ? "_blank" : undefined}
         rel={isExternal ? "noopener noreferrer" : undefined}
+        onClick={onClick}
         className={`${styles} ${className}`}
       >
         {content}

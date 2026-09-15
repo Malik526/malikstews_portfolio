@@ -11,7 +11,7 @@ import { resources } from "../../lib/resources";
 
 const FreeStuffResources: React.FC = () => {
   return (
-    <section className="px-margin-desktop pb-24">
+    <section className="px-margin-mobile md:px-margin-desktop pb-24">
       <div className="max-w-max-width mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
         {resources.map((resource) => (
           <ResourceCard

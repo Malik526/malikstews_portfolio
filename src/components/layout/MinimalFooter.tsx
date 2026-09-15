@@ -21,7 +21,7 @@ interface MinimalFooterProps {
 const MinimalFooter: React.FC<MinimalFooterProps> = ({ brand, links, copyright }) => {
   return (
     <footer className="bg-surface-container-low border-t border-outline-variant">
-      <div className="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-10 max-w-max-width mx-auto gap-4">
+      <div className="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop py-10 max-w-max-width mx-auto gap-4">
         <span className="font-headline-md text-headline-md text-primary">{brand}</span>
         <div className="flex gap-6">
           {links.map((link) => (

@@ -9,7 +9,7 @@ import { technicalProfile } from "../../lib/content";
 const TechnicalProfile: React.FC = () => {
   return (
     <section className="bg-white py-16" id="skills">
-      <div className="max-w-max-width mx-auto px-margin-desktop">
+      <div className="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <h3 className="font-label-mono text-label-mono text-secondary mb-3">

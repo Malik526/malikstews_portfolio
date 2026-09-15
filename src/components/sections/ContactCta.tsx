@@ -11,7 +11,7 @@ import { contact } from "../../lib/content";
 const ContactCta: React.FC = () => {
   return (
     <section className="py-16 lg:py-24" id="contact">
-      <div className="max-w-max-width mx-auto px-margin-desktop text-center">
+      <div className="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop text-center">
 
         {/* --- Label --- */}
         <span className="font-label-mono text-label-mono text-secondary mb-4 block">
@@ -32,7 +32,7 @@ const ContactCta: React.FC = () => {
         <div className="flex flex-col items-center gap-6">
           <a
             href={`mailto:${contact.email}`}
-            className="font-display-hero text-headline-lg text-primary hover:text-secondary transition-colors underline decoration-secondary decoration-4 underline-offset-8"
+            className="font-display-hero text-headline-lg text-primary hover:text-secondary transition-colors underline decoration-secondary decoration-4 underline-offset-8 break-words max-w-full"
           >
             {contact.email}
           </a>

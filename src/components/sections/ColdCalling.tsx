@@ -18,7 +18,7 @@ export interface ColdCallingProps {
 const ColdCalling: React.FC<ColdCallingProps> = ({ content = coldCalling }) => {
   return (
     <section className="bg-background py-16 lg:py-20" id="sales-outreach">
-      <div className="max-w-max-width mx-auto px-margin-desktop">
+      <div className="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
 
         {/* --- Section header --- */}
         <div className="mb-10 max-w-4xl">

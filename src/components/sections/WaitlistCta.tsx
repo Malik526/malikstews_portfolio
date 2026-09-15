@@ -14,7 +14,7 @@ const WaitlistCta: React.FC = () => {
   return (
     <section
       id="waitlist"
-      className="bg-surface-container-low py-24 px-margin-desktop"
+      className="bg-surface-container-low py-24 px-margin-mobile md:px-margin-desktop"
     >
       <div className="max-w-max-width mx-auto">
         <div className="max-w-2xl">

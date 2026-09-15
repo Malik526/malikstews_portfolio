@@ -11,7 +11,7 @@ import { socialProof } from "../../lib/leadGenContent";
 
 const SocialProof: React.FC = () => {
   return (
-    <section className="bg-primary py-24 px-margin-desktop">
+    <section className="bg-primary py-24 px-margin-mobile md:px-margin-desktop">
       <div className="max-w-max-width mx-auto">
 
         {/* --- Section label --- */}

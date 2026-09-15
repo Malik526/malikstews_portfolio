@@ -12,7 +12,7 @@ import Button from "../ui/Button";
 
 const LeadGenHero: React.FC = () => {
   return (
-    <section className="pt-24 pb-12 px-margin-desktop max-w-max-width mx-auto">
+    <section className="pt-24 pb-12 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
 
       {/* --- Label --- */}
       <p className="font-label-mono text-label-mono text-secondary tracking-widest mb-6">

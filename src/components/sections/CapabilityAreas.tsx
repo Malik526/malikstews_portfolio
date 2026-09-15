@@ -11,7 +11,7 @@ import { capabilities } from "../../lib/content";
 const CapabilityAreas: React.FC = () => {
   return (
     <section className="bg-[#f0ede8] py-16 lg:py-20" id="capabilities">
-      <div className="max-w-max-width mx-auto px-margin-desktop">
+      <div className="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
 
         {/* --- Section header --- */}
         <div className="mb-10">

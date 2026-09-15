@@ -12,7 +12,7 @@ import { leadGenHeader } from "../../lib/leadGenContent";
 const LeadGenHeader: React.FC = () => {
   return (
     <nav className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant">
-      <div className="flex justify-between items-center px-margin-desktop py-5 max-w-max-width mx-auto">
+      <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-5 max-w-max-width mx-auto">
 
         {/* --- Brand name --- */}
         <Link to="/" className="font-headline-lg text-headline-md text-primary hover:opacity-80 transition-opacity">

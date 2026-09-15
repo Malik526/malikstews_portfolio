@@ -58,6 +58,7 @@ const AiHarnessForm: React.FC = () => {
       const result = await claimResource({ name: trimmedName, email: trimmedEmail, resourceId: resource.id });
 
       if (!result.ok) {
+        console.error("claimResource returned a failure:", result.error);
         setStatus("error");
         return;
       }
@@ -65,7 +66,8 @@ const AiHarnessForm: React.FC = () => {
       setWasExisting(result.status === "existing");
       setStatus("success");
       triggerDownload(resource.downloadPath, resource.downloadFilename);
-    } catch {
+    } catch (err) {
+      console.error("claimResource request failed:", err);
       setStatus("error");
     }
   };
@@ -77,13 +79,15 @@ const AiHarnessForm: React.FC = () => {
   // --- Render: success state ---
   if (status === "success") {
     return (
-      <section className="px-margin-desktop py-8">
-        <div className="max-w-max-width mx-auto max-w-2xl bg-surface-container-low border border-outline-variant rounded-lg p-8">
-          <h2 className="font-headline-md text-headline-md text-primary mb-2">
-            {wasExisting ? aiHarnessForm.successHeadlineExisting : aiHarnessForm.successHeadlineNew}
-          </h2>
-          <p className="font-body-md text-body-md text-on-surface-variant mb-6">{aiHarnessForm.successBody}</p>
-          <Button label={aiHarnessForm.downloadAgainLabel} onClick={handleDownloadAgain} variant="outline" />
+      <section className="px-margin-mobile md:px-margin-desktop py-8">
+        <div className="max-w-max-width mx-auto">
+          <div className="max-w-2xl bg-surface-container-low border border-outline-variant rounded-lg p-8">
+            <h2 className="font-headline-md text-headline-md text-primary mb-2">
+              {wasExisting ? aiHarnessForm.successHeadlineExisting : aiHarnessForm.successHeadlineNew}
+            </h2>
+            <p className="font-body-md text-body-md text-on-surface-variant mb-6">{aiHarnessForm.successBody}</p>
+            <Button label={aiHarnessForm.downloadAgainLabel} onClick={handleDownloadAgain} variant="outline" />
+          </div>
         </div>
       </section>
     );
@@ -91,45 +95,47 @@ const AiHarnessForm: React.FC = () => {
 
   // --- Render: form ---
   return (
-    <section className="px-margin-desktop py-8">
-      <form onSubmit={handleSubmit} className="max-w-max-width mx-auto max-w-2xl flex flex-col gap-5">
-        <div className="flex flex-col gap-2">
-          <label htmlFor="name" className="font-body-md text-body-md text-on-surface">
-            {aiHarnessForm.nameLabel}
-          </label>
-          <input
-            id="name"
-            type="text"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            autoComplete="name"
-            className="font-body-md text-body-md px-4 py-3 rounded-lg border border-outline-variant bg-surface focus:outline-none focus:border-primary"
+    <section className="px-margin-mobile md:px-margin-desktop py-8">
+      <div className="max-w-max-width mx-auto">
+        <form onSubmit={handleSubmit} className="max-w-2xl flex flex-col gap-5">
+          <div className="flex flex-col gap-2">
+            <label htmlFor="name" className="font-body-md text-body-md text-on-surface">
+              {aiHarnessForm.nameLabel}
+            </label>
+            <input
+              id="name"
+              type="text"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+              autoComplete="name"
+              className="font-body-md text-body-md px-4 py-3 rounded-lg border border-outline-variant bg-surface focus:outline-none focus:border-primary"
+            />
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <label htmlFor="email" className="font-body-md text-body-md text-on-surface">
+              {aiHarnessForm.emailLabel}
+            </label>
+            <input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              autoComplete="email"
+              className="font-body-md text-body-md px-4 py-3 rounded-lg border border-outline-variant bg-surface focus:outline-none focus:border-primary"
+            />
+          </div>
+
+          {fieldError && <p className="font-body-md text-body-md text-error">{fieldError}</p>}
+          {status === "error" && <p className="font-body-md text-body-md text-error">{aiHarnessForm.genericError}</p>}
+
+          <Button
+            label={status === "submitting" ? aiHarnessForm.submittingLabel : aiHarnessForm.submitLabel}
+            onClick={() => {}}
+            className={status === "submitting" ? "pointer-events-none opacity-70" : ""}
           />
-        </div>
-
-        <div className="flex flex-col gap-2">
-          <label htmlFor="email" className="font-body-md text-body-md text-on-surface">
-            {aiHarnessForm.emailLabel}
-          </label>
-          <input
-            id="email"
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            autoComplete="email"
-            className="font-body-md text-body-md px-4 py-3 rounded-lg border border-outline-variant bg-surface focus:outline-none focus:border-primary"
-          />
-        </div>
-
-        {fieldError && <p className="font-body-md text-body-md text-error">{fieldError}</p>}
-        {status === "error" && <p className="font-body-md text-body-md text-error">{aiHarnessForm.genericError}</p>}
-
-        <Button
-          label={status === "submitting" ? aiHarnessForm.submittingLabel : aiHarnessForm.submitLabel}
-          onClick={() => {}}
-          className={status === "submitting" ? "pointer-events-none opacity-70" : ""}
-        />
-      </form>
+        </form>
+      </div>
     </section>
   );
 };
