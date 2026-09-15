@@ -1,5 +1,26 @@
 # CHANGELOG
 
+## [2026-09-15] — Fix Production-Only AI Harness Claim Failure
+
+### Summary
+The AI Harness claim/download flow worked on localhost but failed instantly on production (malikstewart.com) with the generic error message. Root cause: `VITE_APPS_SCRIPT_URL` was never set in Netlify's build environment. Vite bakes `VITE_*` vars in at build time, and a local `.env` (correctly gitignored) has no effect on Netlify's build — nothing in the repo ever told Netlify what the value should be. With the var unset, Vite's dead-code elimination determined the `if (!APPS_SCRIPT_URL)` branch was always true and stripped the entire fetch/retry function body down to just the immediate throw — the production bundle literally did not contain working claim logic.
+
+### Changes
+- Added `netlify.toml` with only a `[build.environment]` block setting `VITE_APPS_SCRIPT_URL` to the Apps Script Web App URL. Deliberately did not add `[build]` command/publish settings, since those are already correctly configured (SPA routing via `public/_redirects` was independently confirmed live) and this file should supply only what was actually missing. The URL itself is not a secret — it's the public Web App endpoint called directly from the browser, already documented as such in `.env.example`.
+
+### Verification
+- Ruled out CORS and CSP entirely: confirmed no CSP exists anywhere (no `netlify.toml` `_headers`, no CSP `<meta>` tag in `index.html`, and no `Content-Security-Policy` header in the live production response headers), and confirmed zero network requests to `script.google.com` are even attempted in production — CORS can't be the cause if no request is made.
+- Found direct, literal proof in the deployed bundle (`https://malikstewart.com/assets/index-*.js`): the compiled `claimResource` function was reduced to `async function wh(e){throw new Error("VITE_APPS_SCRIPT_URL is not configured.")}` — confirming the env var was undefined at build time.
+- Reproduced live against production in real Chromium: console showed `Error: VITE_APPS_SCRIPT_URL is not configured.` thrown synchronously on submit, zero requests to `script.google.com` in the network log.
+- Simulated Netlify's build-time env injection locally (env var set via shell, `.env` temporarily moved aside) and confirmed the resulting bundle now contains the real Apps Script URL baked in and the throw-stub is gone (0 occurrences).
+- Served that corrected build via `vite preview` and ran a full live end-to-end trial: claim succeeded, ZIP downloaded successfully.
+- Ran `npm run build` successfully with the normal local `.env` restored.
+
+### Deployment note
+This fix only takes effect once Netlify runs a new build that reads `netlify.toml` — pushing this commit and triggering a redeploy is required; it will not retroactively fix the currently-live deployment.
+
+---
+
 ## [2026-09-15] — Fix Intermittent AI Harness Claim Failure
 
 ### Summary

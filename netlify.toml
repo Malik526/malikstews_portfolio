@@ -1,0 +1,11 @@
+# Vite bakes VITE_* variables into the bundle at build time, so Netlify's
+# build environment needs this set directly — a local .env file (gitignored,
+# see .gitignore) has no effect on Netlify's build. This value is not a
+# secret: it's the public Apps Script Web App URL called directly from the
+# browser (see src/lib/claimResource.ts and .env.example).
+#
+# Deliberately not setting [build] command/publish here — those are already
+# configured correctly (via the Netlify dashboard or auto-detection) and
+# this file should only supply what was actually missing.
+[build.environment]
+  VITE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyWIe2B4ZLomLA3Z97HjAe359vgBi_0kHXtKeQLHmjH_X3cbXAx3yiMjfrxzQiaE-og/exec"
