@@ -20,12 +20,18 @@ const resource = getResource("ai-harness");
 type Status = "idle" | "submitting" | "success" | "error";
 
 function triggerDownload(path: string, filename: string) {
-  const link = document.createElement("a");
-  link.href = path;
-  link.download = filename;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  try {
+    const link = document.createElement("a");
+    link.href = path;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  } catch (err) {
+    // The claim itself already succeeded at this point — a download-trigger
+    // failure here is a separate, later failure, not a claim failure.
+    console.error("triggerDownload failed after a successful claim:", err);
+  }
 }
 
 const AiHarnessForm: React.FC = () => {
@@ -58,16 +64,25 @@ const AiHarnessForm: React.FC = () => {
       const result = await claimResource({ name: trimmedName, email: trimmedEmail, resourceId: resource.id });
 
       if (!result.ok) {
-        console.error("claimResource returned a failure:", result.error);
+        // CLAIM FAILURE: Apps Script itself rejected the submission (e.g.
+        // invalid email/resource) — a real rejection, not a transport issue.
+        console.error("AI Harness claim rejected by Apps Script (CLAIM FAILURE):", result.error);
         setStatus("error");
         return;
       }
 
+      // CLAIM SUCCESS — the Sheet write is confirmed at this point. Any
+      // failure past here (see triggerDownload's own try/catch) is a
+      // separate download-trigger failure, not a claim failure, and does
+      // not affect this success state.
       setWasExisting(result.status === "existing");
       setStatus("success");
       triggerDownload(resource.downloadPath, resource.downloadFilename);
     } catch (err) {
-      console.error("claimResource request failed:", err);
+      // Both claimResource attempts failed at the transport level (network
+      // error, bad HTTP status, unparseable response) — we genuinely don't
+      // know whether Apps Script's doPost() ran or the Sheet updated.
+      console.error("AI Harness claim could not be confirmed (transport failure, not a rejection):", err);
       setStatus("error");
     }
   };

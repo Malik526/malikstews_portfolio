@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## [2026-09-15] — Fix Intermittent AI Harness Claim Failure
+
+### Summary
+The AI Harness form intermittently showed "Something went wrong. Please try again." after submission. Root cause: Google Apps Script Web Apps redirect every request to a one-time `script.googleusercontent.com` content URL, and that second hop is observably flaky in production — it intermittently 404s or takes 8-13s+ — even though the underlying `doPost()` and Sheet write had already succeeded. The generic error hid this distinction and gave no diagnostic detail.
+
+### Changes
+- `src/lib/claimResource.ts`: retries once on transport-level failure (bad HTTP status, network error, unparseable JSON) with a short delay. Safe to retry because Apps Script (`Code.gs`) dedupes by normalized email — a retried submission updates the existing row instead of duplicating it. A well-formed `{ok:false}` rejection from Apps Script is *not* retried, since that's a genuine rejection, not a transient failure. Added `console.debug`/`console.warn` logging of the raw Apps Script payload and each failed attempt.
+- `src/components/sections/AiHarnessForm.tsx`: wrapped `triggerDownload` in its own try/catch (a download-trigger failure after a confirmed claim success is a distinct, separate failure, not a claim failure) and labeled the two existing console.error calls explicitly as CLAIM FAILURE (Apps Script rejected the submission) vs. an unconfirmed transport failure (both retries failed), so the real failure category is visible in dev tools instead of only a generic on-page message.
+
+### Verification
+- Reproduced the reported failure live in Chromium before the fix: POST → 302 → GET to the content-echo URL → 404 after ~11s → thrown error → correctly caught and shown as the generic error (confirmed via console: `claimResource request failed: Error: Apps Script request failed with status 404`). Re-ran immediately after with no code changes and it succeeded — confirming the 404 is Google-side infrastructure flakiness, not a deterministic bug.
+- Confirmed `src/lib/resources.ts`'s `downloadPath` (`/downloads/ai-harness/malik-ai-harness-v1.zip`) is correct, and that the file exists, is non-zero size, and is a valid, uncorrupted ZIP (`python3 zipfile` test) via the local production preview, with correct `Content-Type: application/zip` and matching `Content-Length`.
+- After the fix, ran 8 live end-to-end trials in real Chromium: 8/8 reached a confirmed success state (new or existing subscriber), 7/8 had a directly confirmed ZIP download (the 8th triggered the retry path — confirmed via console log that the Sheet write had already succeeded on attempt 1, since the retry correctly resolved to "existing" for a brand-new email — but the test harness's own download-listener timeout was too short for that unusually long retry sequence; the same download code path was independently confirmed working on other "existing"-status trials). Zero trials ended in the user-facing error state, versus a reproducible failure on the very first attempt before the fix.
+- Ran `npm run build` (tsc + vite build) successfully.
+
+### Known tradeoff
+Worst case (both attempts hit the slow/flaky path) could take ~25s+ before the user sees a result. Not addressed here since it would require UX changes beyond this defect fix — flagged for a future pass if it proves common in practice.
+
+---
+
 ## [2026-09-15] — Fix Netlify Direct-Link 404 on SPA Routes
 
 ### Summary
