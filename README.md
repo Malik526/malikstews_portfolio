@@ -6,7 +6,9 @@ Positioning:
 
 > Full-Stack Engineer | GTM Systems | Applied AI & Automation
 
-This project is intentionally local-only for now. No GitHub remote or deployment has been configured.
+Deployed as a static SPA on Netlify. `public/_redirects` provides the SPA
+fallback rewrite (`/*  /index.html  200`) so client-side routes like
+`/free-stuff/ai-harness` resolve correctly on direct load and refresh.
 
 ## Stack
 

@@ -1,5 +1,22 @@
 # CHANGELOG
 
+## [2026-09-15] — Fix Netlify Direct-Link 404 on SPA Routes
+
+### Summary
+Direct-loading or refreshing a client-side route (e.g. `/free-stuff`, `/free-stuff/ai-harness`) returned Netlify's default 404 because no SPA fallback rewrite existed — Netlify tried to resolve those paths as real files before the client-side router could run.
+
+### Changes
+- Added `public/_redirects` with `/*    /index.html    200`, Netlify's documented SPA fallback rewrite (status 200, not a 301/302 — the URL stays visible while `index.html` is served). Vite copies `public/` verbatim into `dist/`, so this lands at `dist/_redirects` automatically on every build.
+- Updated the root `README.md`, which still said "no deployment has been configured" — the site is now live on Netlify.
+
+### Verification
+- Ran `npm run build`; confirmed `dist/_redirects` exists with the exact expected content, and that `dist/assets/*` and `dist/downloads/ai-harness/malik-ai-harness-v1.zip` are still present as real files.
+- `netlify-cli serve` failed with an internal CLI error reproducible even against an unrelated throwaway directory, confirming it's an environment/CLI issue unrelated to this change — not usable for local verification here.
+- Built a small local server that faithfully replicates Netlify's documented rewrite semantics (real file wins; otherwise fall back to `index.html` with 200) and served the actual `dist/` output through it. Confirmed via curl and a real Chromium browser: `/`, `/free-stuff`, and `/free-stuff/ai-harness` all return 200 and render correctly on direct load; a full page refresh on `/free-stuff/ai-harness` stays on that URL and re-renders correctly; internal nav (Portfolio → Free Stuff → AI Harness → Back to Free Stuff) still works; real assets (`/assets/*.js`) and the harness ZIP (`/downloads/ai-harness/malik-ai-harness-v1.zip`) are served as themselves, not the HTML fallback; the ZIP download still completes successfully.
+- This was a simulation of Netlify's documented behavior, not Netlify's actual production edge — true confirmation still requires checking the live Netlify deploy directly (see report).
+
+---
+
 ## [2026-09-15] — Free Stuff / AI Coding Harness Lead Magnet
 
 ### Summary
