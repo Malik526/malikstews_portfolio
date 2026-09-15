@@ -5,3 +5,4 @@
 export { default as Header } from "./Header";
 export { default as Footer } from "./Footer";
 export { default as LeadGenHeader } from "./LeadGenHeader";
+export { default as MinimalFooter } from "./MinimalFooter";

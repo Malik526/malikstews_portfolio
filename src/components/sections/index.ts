@@ -16,3 +16,7 @@ export { default as LeadGenHero } from "./LeadGenHero";
 export { default as FreePaidTable } from "./FreePaidTable";
 export { default as SocialProof } from "./SocialProof";
 export { default as WaitlistCta } from "./WaitlistCta";
+export { default as FreeStuffHero } from "./FreeStuffHero";
+export { default as FreeStuffResources } from "./FreeStuffResources";
+export { default as AiHarnessHero } from "./AiHarnessHero";
+export { default as AiHarnessForm } from "./AiHarnessForm";

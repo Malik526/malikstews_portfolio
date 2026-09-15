@@ -22,6 +22,10 @@ Customer-facing, GTM, and sales experience should support the engineering story 
 - `src/components/layout/` contains shared page chrome such as headers and footer.
 - `public/videos/featured/{project-slug}/demo.mp4` is the expected path convention for featured project demo videos.
 - `public/assets/images/` contains portfolio image assets.
+- `src/pages/FreeStuffPage.tsx` and `src/pages/AiHarnessPage.tsx` assemble the `/free-stuff` resource library and its first resource's landing page.
+- `src/lib/resources.ts` is the canonical list of downloadable free resources; add an entry there (and a matching `RESOURCES` entry in `free-stuff/google-apps-script/Code.gs`) to add a new resource.
+- `src/lib/claimResource.ts` submits free-resource form claims to a Google Apps Script Web App that writes to a Google Sheet — see `free-stuff/google-apps-script/README.md` for setup.
+- `free-stuff/<resource>/` holds source material and packaging for a downloadable resource (not the website route, which lives under `src/pages/`). `npm run build:ai-harness` regenerates the AI Harness ZIP from `~/.agents` — see `scripts/build-ai-harness.mjs`.
 
 ## Project Conventions
 

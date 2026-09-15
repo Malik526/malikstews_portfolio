@@ -6,7 +6,7 @@
  */
 
 import React from "react";
-import { LeadGenHeader } from "../components/layout";
+import { LeadGenHeader, MinimalFooter } from "../components/layout";
 import {
   LeadGenHero,
   FreePaidTable,
@@ -14,33 +14,6 @@ import {
   WaitlistCta,
 } from "../components/sections";
 import { leadGenFooter } from "../lib/leadGenContent";
-
-// Minimal footer — not the full portfolio footer
-const LeadGenFooter: React.FC = () => (
-  <footer className="bg-surface-container-low border-t border-outline-variant">
-    <div className="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-10 max-w-max-width mx-auto gap-4">
-      <span className="font-headline-md text-headline-md text-primary">
-        {leadGenFooter.brand}
-      </span>
-      <div className="flex gap-6">
-        {leadGenFooter.links.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            target={link.href.startsWith("http") ? "_blank" : undefined}
-            rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-            className="font-body-md text-body-md text-on-surface-variant hover:text-primary underline decoration-secondary decoration-2 transition-colors"
-          >
-            {link.label}
-          </a>
-        ))}
-      </div>
-      <p className="font-body-md text-body-md text-on-surface-variant">
-        {leadGenFooter.copyright}
-      </p>
-    </div>
-  </footer>
-);
 
 const LeadGenPage: React.FC = () => {
   return (
@@ -57,7 +30,7 @@ const LeadGenPage: React.FC = () => {
         <SocialProof />
       </main>
 
-      <LeadGenFooter />
+      <MinimalFooter {...leadGenFooter} />
 
     </div>
   );

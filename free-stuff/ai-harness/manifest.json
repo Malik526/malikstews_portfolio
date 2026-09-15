@@ -1,0 +1,13 @@
+{
+  "name": "malik-ai-harness-v1",
+  "version": "1.0.0",
+  "description": "Reusable global engineering policy files for coding agents (Claude Code, Codex, etc).",
+  "generatedAt": "2026-09-15T06:33:50.057Z",
+  "sourceFiles": [
+    "CODING.md",
+    "DOCUMENTATION.md",
+    "GIT.md",
+    "SECURITY.md",
+    "VERIFICATION.md"
+  ]
+}

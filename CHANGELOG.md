@@ -1,5 +1,27 @@
 # CHANGELOG
 
+## [2026-09-15] — Free Stuff / AI Coding Harness Lead Magnet
+
+### Summary
+Added a `/free-stuff` resource library and a `/free-stuff/ai-harness` landing page that captures name + email, records the requested resource in a Google Sheet via a Google Apps Script Web App, and immediately serves the AI Coding Harness ZIP. The harness ZIP is generated from the local `~/.agents` global-policy files through an explicit allowlist rather than maintained as a duplicate copy.
+
+### Changes
+- Added `/free-stuff` (`src/pages/FreeStuffPage.tsx`) and `/free-stuff/ai-harness` (`src/pages/AiHarnessPage.tsx`) routes to `src/App.tsx`, reusing the existing `LeadGenHeader`.
+- Extracted `src/components/layout/MinimalFooter.tsx` from `LeadGenPage.tsx`'s inline footer so it can be shared across `/lead-gen` and the new `/free-stuff` pages.
+- Added `src/lib/resources.ts` as the single place to register a downloadable resource (id, copy, download path) so future resources are one array entry plus a matching `RESOURCES` entry in the Apps Script.
+- Added `src/lib/claimResource.ts`, which POSTs name/email/resourceId to a Google Apps Script Web App (`VITE_APPS_SCRIPT_URL`) that upserts one subscriber row per normalized email in a Google Sheet — no Supabase or other database involved. A duplicate email updates the existing row instead of erroring.
+- Added `free-stuff/google-apps-script/Code.gs` and its setup `README.md` — the Apps Script source of truth (Google's side, not deployable from this repo) plus one-time and redeploy instructions.
+- Added `scripts/build-ai-harness.mjs` (`npm run build:ai-harness`), which copies an explicit allowlist of five files from `~/.agents` (CODING.md, DOCUMENTATION.md, GIT.md, SECURITY.md, VERIFICATION.md) into `free-stuff/ai-harness/package/`, redacts one known private cross-reference, scans for secret-like patterns, and zips the result plus the public `free-stuff/ai-harness/README.md` into `free-stuff/ai-harness/dist/malik-ai-harness-v1.zip` and `public/downloads/ai-harness/malik-ai-harness-v1.zip`.
+- The `public/downloads/ai-harness/` copy is committed (not gitignored) because `~/.agents` only exists on this machine, not on a deploy/CI server, so the ZIP can't be regenerated at build time — rerun `npm run build:ai-harness` and commit the result whenever `~/.agents` changes.
+
+### Verification
+- Ran `npm run build:ai-harness`; confirmed the output ZIP opens, contains the expected 6 files, and the known private cross-reference was redacted.
+- Ran `npm run build` (tsc + vite build) successfully.
+- Started the dev server and confirmed `/free-stuff`, `/free-stuff/ai-harness`, and the static ZIP download path all respond 200 with correct content.
+- Could not complete a rendered-browser/mobile-layout check or a live Apps Script submission in this environment: headless Chromium is missing system NSS libraries (`libnss3`, `libnspr4`) that require `sudo apt-get install`, and no Google Apps Script deployment exists yet to submit against. Both are noted as follow-ups for the user.
+
+---
+
 ## [2026-08-30 16:33 EDT] — Engineering Portfolio Repositioning and FirstMove Video Fit
 
 ### Summary
