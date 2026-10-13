@@ -4,32 +4,40 @@
  */
 
 export const aiHarnessMeta = {
-  title: "AI Coding Harness | Free Download | Malik Stewart",
-  description: "The global engineering policies I use to keep coding agents consistent across my projects.",
+  title: "AI Engineering Harness | Malik Stewart",
+  description:
+    "The system I use to make AI coding agents more consistent: shared engineering policies, deterministic verification, scoped project context, reusable workflows, and optional Autobuild orchestration. Free on GitHub.",
 };
 
 export const aiHarnessHero = {
   label: "FREE RESOURCE",
-  headline: "AI Coding Harness",
-  subtext: "The global engineering policies I use to keep coding agents from drifting off track.",
+  headline: "AI Engineering Harness",
+  subtext:
+    "The system I use to make AI coding agents more consistent: shared engineering policies, deterministic verification, scoped project context, reusable workflows, and an optional autonomous build loop.",
   includes: [
-    "Coding standards",
-    "Documentation policies",
-    "Git workflow",
-    "Security policies",
-    "Verification standards",
+    "Shared engineering policies for Claude Code and Codex",
+    "Deterministic verification and commit safeguards",
+    "Scoped project context instead of one giant instruction file",
+    "Reusable workflow skills",
+    "Autobuild, an optional autonomous build loop",
   ],
+  evolutionNote:
+    "The first version was a set of persistent Markdown instructions. It helped, but instructions alone hit a consistency ceiling, so I rebuilt it into a real engineering system.",
+  deliveryNote:
+    "You get the full GitHub repository, always the latest version. Setup instructions live in the README.",
 };
 
 export const aiHarnessForm = {
   nameLabel: "Name",
   emailLabel: "Email",
-  submitLabel: "Download the Harness",
+  submitLabel: "Get the AI Engineering Harness",
   submittingLabel: "Sending...",
   successHeadlineNew: "You're in.",
   successHeadlineExisting: "You're already on the list.",
-  successBody: "Your AI Coding Harness download should begin automatically.",
-  downloadAgainLabel: "Download again",
+  successBody: "Your access to the AI Engineering Harness is ready. The full repository is on GitHub.",
+  autobuildNote:
+    "It includes the core harness plus Autobuild. Autobuild is optional: you can use the base harness without it.",
+  githubCtaLabel: "Open the AI Engineering Harness on GitHub",
   genericError: "Something went wrong. Please try again.",
   invalidNameError: "Enter your name.",
   invalidEmailError: "Enter a valid email address.",

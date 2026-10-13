@@ -47,3 +47,11 @@ already-claimed resource updates `Last Downloaded At` in place rather than
 adding a row; claiming a different resource appends it to the `Resources`
 cell (comma-separated, e.g. `AI Coding Harness, Codex Skills`) instead of
 creating a second subscriber row.
+
+Resources are no longer delivered as file downloads: after a confirmed claim
+the site links to the resource's canonical home (for the AI Engineering
+Harness, its GitHub repository). The `Last Downloaded At` column name is kept
+unchanged so the existing Sheet schema and `Code.gs` deployment don't need to
+change; it now records the time of the most recent claim. The `ai-harness`
+display name in `RESOURCES` also stays `AI Coding Harness` so existing rows
+keep deduping against the same value.

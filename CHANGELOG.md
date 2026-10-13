@@ -1,5 +1,27 @@
 # CHANGELOG
 
+## [2026-10-12] — AI Engineering Harness: Deliver via GitHub Instead of ZIP
+
+### Summary
+The `/free-stuff/ai-harness` funnel no longer serves the old v1 Markdown ZIP. Lead capture (name + email → Google Apps Script → Google Sheet) is unchanged; after a confirmed claim, the success state now links to the canonical AI Engineering Harness repository (https://github.com/Malik526/ai-engineering-harness) and notes that Autobuild is included but optional. Project rule going forward: the site owns the conversion, GitHub owns distribution, and the site does not host a packaged copy of the harness.
+
+### Changes
+- `src/lib/resources.ts`: replaced `downloadPath`/`downloadFilename` with `accessUrl`; added `AI_HARNESS_REPO_URL`; renamed the resource to "AI Engineering Harness" and rewrote its library-card description.
+- `src/lib/aiHarnessContent.ts`: rewrote page metadata, hero copy, "Includes" list, and form/success copy for the repository-based harness, including a short note on the move from Markdown instructions to the rebuilt system. Removed ZIP/download wording.
+- `src/components/sections/AiHarnessForm.tsx`: removed `triggerDownload` and the "Download again" button. The success state (shown only after Apps Script returns `ok: true`) now renders the GitHub CTA (new tab, `noopener`) plus the optional-Autobuild note. Added an in-flight guard against duplicate submits via Enter, `role="alert"` on errors, and focus on the success heading.
+- `src/components/sections/AiHarnessHero.tsx`: renders the new evolution and delivery notes.
+- Removed `public/downloads/ai-harness/malik-ai-harness-v1.zip`, `scripts/build-ai-harness.mjs`, the `build:ai-harness` npm script, and the `archiver` dev dependency (it was used only by that script). `free-stuff/ai-harness/` is kept as archived v1 source and is no longer built or served.
+- Apps Script `Code.gs`, the `ai-harness` resource id, and the Sheet schema are unchanged, so no Google-side redeploy is needed. Documented that `Last Downloaded At` now records the latest claim.
+- Updated `README.md`, `AGENTS.md`, and `free-stuff/google-apps-script/README.md` for the new delivery model.
+
+### Verification
+- `npm run build` (tsc for app and node configs, then vite build) passes. The repo has no lint or test scripts.
+- Targeted search of `src`, `public`, `dist`, `index.html`, `package.json`, `netlify.toml`, `README.md`, and `AGENTS.md` found no matches for the old ZIP filename, `/downloads/` paths, `build:ai-harness`, `triggerDownload`, or old download CTA copy. The built bundle contains the repository URL.
+- Ran a 36-check Playwright/Chromium end-to-end test against a build whose `VITE_APPS_SCRIPT_URL` pointed at a local mock endpoint, so no test leads reached the production Sheet. All 36 passed. Covered: validation (native and app-level) sends no request; a transport failure retries once, shows the error, keeps the entered values, and shows no CTA; an Apps Script rejection is not retried; a double Enter while in flight sends one request; the payload still carries `name`/`email`/`resourceId`; the CTA appears only after success, points to the repository, and opens it in a new tab; an existing subscriber also gets the CTA; no file download fires in any flow; the old ZIP URL is no longer served as a ZIP; no horizontal overflow at 375, 768, or 1280 px, and the CTA fits the viewport at each.
+- Not verified: a live write to the production Apps Script/Sheet. The client request shape and the Apps Script are unchanged from the previously verified flow.
+
+---
+
 ## [2026-09-15] — Fix Production-Only AI Harness Claim Failure
 
 ### Summary

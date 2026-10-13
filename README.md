@@ -23,10 +23,17 @@ fallback rewrite (`/*  /index.html  200`) so client-side routes like
 npm install
 npm run dev
 npm run build
-npm run build:ai-harness   # regenerates free-stuff/ai-harness from ~/.agents — see free-stuff/ai-harness/README.md
 ```
 
 ## Environment variables
 
 Copy `.env.example` to `.env` and set `VITE_APPS_SCRIPT_URL` to enable the
 `/free-stuff` forms (see `free-stuff/google-apps-script/README.md` for setup).
+
+## Free resources
+
+The site captures the lead; each resource's canonical home delivers it. The
+AI Engineering Harness is delivered from its GitHub repository
+(<https://github.com/Malik526/ai-engineering-harness>), revealed only after the
+Google Sheet claim succeeds. This site does not host a packaged copy of the
+harness.

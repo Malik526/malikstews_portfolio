@@ -1,7 +1,8 @@
 /**
  * AiHarnessHero.tsx
- * Intro section for the /free-stuff/ai-harness page — headline plus the
- * "Includes" bullet list of what's in the package.
+ * Intro section for the /free-stuff/ai-harness page — headline, the
+ * "Includes" bullet list of what's in the repository, a short note on how
+ * the harness evolved, and how it's delivered (GitHub).
  * Props: none — content sourced from aiHarnessContent.ts.
  */
 
@@ -26,6 +27,8 @@ const AiHarnessHero: React.FC = () => {
               </li>
             ))}
           </ul>
+          <p className="font-body-md text-body-md text-on-surface-variant mt-8">{aiHarnessHero.evolutionNote}</p>
+          <p className="font-body-md text-body-md text-on-surface-variant mt-4">{aiHarnessHero.deliveryNote}</p>
         </div>
       </div>
     </section>

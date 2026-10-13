@@ -23,9 +23,10 @@ Customer-facing, GTM, and sales experience should support the engineering story 
 - `public/videos/featured/{project-slug}/demo.mp4` is the expected path convention for featured project demo videos.
 - `public/assets/images/` contains portfolio image assets.
 - `src/pages/FreeStuffPage.tsx` and `src/pages/AiHarnessPage.tsx` assemble the `/free-stuff` resource library and its first resource's landing page.
-- `src/lib/resources.ts` is the canonical list of downloadable free resources; add an entry there (and a matching `RESOURCES` entry in `free-stuff/google-apps-script/Code.gs`) to add a new resource.
+- `src/lib/resources.ts` is the canonical list of free resources, including each resource's post-claim `accessUrl`; add an entry there (and a matching `RESOURCES` entry in `free-stuff/google-apps-script/Code.gs`) to add a new resource.
 - `src/lib/claimResource.ts` submits free-resource form claims to a Google Apps Script Web App that writes to a Google Sheet — see `free-stuff/google-apps-script/README.md` for setup.
-- `free-stuff/<resource>/` holds source material and packaging for a downloadable resource (not the website route, which lives under `src/pages/`). `npm run build:ai-harness` regenerates the AI Harness ZIP from `~/.agents` — see `scripts/build-ai-harness.mjs`.
+- The AI Engineering Harness is distributed only from its GitHub repository (`AI_HARNESS_REPO_URL` in `src/lib/resources.ts`). The site owns the lead capture; GitHub owns distribution. Do not reintroduce a packaged copy (ZIP or Markdown bundle) of the harness on this site.
+- `free-stuff/ai-harness/` is the archived v1 Markdown package source. It is no longer built or served and is kept only as history.
 
 ## Project Conventions
 

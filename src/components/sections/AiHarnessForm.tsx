@@ -1,14 +1,16 @@
 /**
  * AiHarnessForm.tsx
- * Name + email capture for the AI Harness resource. On successful submission,
- * claims the resource via claimResource() (Google Apps Script Web App),
- * triggers an immediate download, and shows a success state with a manual
- * "Download again" fallback that always works regardless of the auto-download.
+ * Name + email capture for the AI Harness resource. On submission, claims the
+ * resource via claimResource() (Google Apps Script Web App -> Google Sheet).
+ * Only once that claim is confirmed does it show the success state with the
+ * GitHub repository CTA (resource.accessUrl) — no file is downloaded; the
+ * repository is the canonical distribution. A failed or unconfirmed claim
+ * keeps the entered values and shows a retryable error instead.
  * A duplicate email is treated as success, not an error.
  * Props: none — content sourced from aiHarnessContent.ts.
  */
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button } from "../ui";
 import { aiHarnessForm } from "../../lib/aiHarnessContent";
 import { getResource } from "../../lib/resources";
@@ -19,31 +21,31 @@ const resource = getResource("ai-harness");
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-function triggerDownload(path: string, filename: string) {
-  try {
-    const link = document.createElement("a");
-    link.href = path;
-    link.download = filename;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  } catch (err) {
-    // The claim itself already succeeded at this point — a download-trigger
-    // failure here is a separate, later failure, not a claim failure.
-    console.error("triggerDownload failed after a successful claim:", err);
-  }
-}
-
 const AiHarnessForm: React.FC = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [fieldError, setFieldError] = useState<string | null>(null);
   const [wasExisting, setWasExisting] = useState(false);
+  const successHeadingRef = useRef<HTMLHeadingElement>(null);
+
+  // Move focus to the success heading so screen readers announce the swap
+  // from form to access state.
+  useEffect(() => {
+    if (status === "success") {
+      successHeadingRef.current?.focus();
+    }
+  }, [status]);
 
   // --- Handlers ---
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+
+    // The submit button only looks disabled while in flight; Enter in a field
+    // can still submit, so guard against a duplicate request here.
+    if (status === "submitting") {
+      return;
+    }
 
     const trimmedName = name.trim();
     const trimmedEmail = email.trim();
@@ -71,13 +73,10 @@ const AiHarnessForm: React.FC = () => {
         return;
       }
 
-      // CLAIM SUCCESS — the Sheet write is confirmed at this point. Any
-      // failure past here (see triggerDownload's own try/catch) is a
-      // separate download-trigger failure, not a claim failure, and does
-      // not affect this success state.
+      // CLAIM SUCCESS — the Sheet write is confirmed, so the GitHub access
+      // CTA can be revealed.
       setWasExisting(result.status === "existing");
       setStatus("success");
-      triggerDownload(resource.downloadPath, resource.downloadFilename);
     } catch (err) {
       // Both claimResource attempts failed at the transport level (network
       // error, bad HTTP status, unparseable response) — we genuinely don't
@@ -87,21 +86,27 @@ const AiHarnessForm: React.FC = () => {
     }
   };
 
-  const handleDownloadAgain = () => {
-    triggerDownload(resource.downloadPath, resource.downloadFilename);
-  };
-
   // --- Render: success state ---
   if (status === "success") {
     return (
       <section className="px-margin-mobile md:px-margin-desktop py-8">
         <div className="max-w-max-width mx-auto">
-          <div className="max-w-2xl bg-surface-container-low border border-outline-variant rounded-lg p-8">
-            <h2 className="font-headline-md text-headline-md text-primary mb-2">
+          <div className="max-w-2xl bg-surface-container-low border border-outline-variant rounded-lg p-6 md:p-8">
+            <h2
+              ref={successHeadingRef}
+              tabIndex={-1}
+              className="font-headline-md text-headline-md text-primary mb-2 focus:outline-none"
+            >
               {wasExisting ? aiHarnessForm.successHeadlineExisting : aiHarnessForm.successHeadlineNew}
             </h2>
-            <p className="font-body-md text-body-md text-on-surface-variant mb-6">{aiHarnessForm.successBody}</p>
-            <Button label={aiHarnessForm.downloadAgainLabel} onClick={handleDownloadAgain} variant="outline" />
+            <p className="font-body-md text-body-md text-on-surface-variant mb-2">{aiHarnessForm.successBody}</p>
+            <p className="font-body-md text-body-md text-on-surface-variant mb-6">{aiHarnessForm.autobuildNote}</p>
+            <Button
+              label={aiHarnessForm.githubCtaLabel}
+              href={resource.accessUrl}
+              icon="arrow_outward"
+              className="w-full md:w-auto justify-center text-center"
+            />
           </div>
         </div>
       </section>
@@ -141,8 +146,16 @@ const AiHarnessForm: React.FC = () => {
             />
           </div>
 
-          {fieldError && <p className="font-body-md text-body-md text-error">{fieldError}</p>}
-          {status === "error" && <p className="font-body-md text-body-md text-error">{aiHarnessForm.genericError}</p>}
+          {fieldError && (
+            <p role="alert" className="font-body-md text-body-md text-error">
+              {fieldError}
+            </p>
+          )}
+          {status === "error" && (
+            <p role="alert" className="font-body-md text-body-md text-error">
+              {aiHarnessForm.genericError}
+            </p>
+          )}
 
           <Button
             label={status === "submitting" ? aiHarnessForm.submittingLabel : aiHarnessForm.submitLabel}
