@@ -44,64 +44,6 @@ export const ticker = {
   ],
 };
 
-// --- Cold Calling & Sales Experience Section ---
-export const coldCalling = {
-  label: "CUSTOMER & GTM EXPERIENCE",
-  headline: "Technical work meets the real market.",
-  subheadline:
-    "The engineering work is grounded in live customer acquisition: discovery, objection handling, demo delivery, follow-up, and pipeline ownership.",
-  stats: [
-    {
-      number: "100+",
-      label: "Outbound Calls",
-    },
-    {
-      number: "150+",
-      label: "Campaign Emails",
-    },
-    {
-      number: "6",
-      label: "Qualified Meetings",
-    },
-    {
-      number: "2",
-      label: "Paying Clients",
-    },
-  ],
-  activities: [
-    {
-      title: "Discovery & Outreach",
-      description:
-        "Ran outbound calls and campaign emails to local service businesses, reaching owners, qualifying pain points, and validating whether the systems solved real acquisition problems.",
-    },
-    {
-      title: "Objection Handling",
-      description:
-        "Handled pricing concerns, existing vendor relationships, and timing hesitation with ROI math, business outcomes, and concrete demos instead of abstract claims.",
-    },
-    {
-      title: "Demo Building & Delivery",
-      description:
-        "Built and delivered custom demo experiences for prospects so technical value could be evaluated through working examples.",
-    },
-    {
-      title: "Follow-Up Systems",
-      description:
-        "Created structured follow-up across phone, email, text, and pipeline tracking so customer-facing work was measurable and repeatable.",
-    },
-    {
-      title: "CRM & Pipeline Management",
-      description:
-        "Maintained Google Sheets-based CRM workflows with scoring, deduplication, status labels, and follow-up dates to prioritize outreach.",
-    },
-    {
-      title: "ROI Pitch Framework",
-      description:
-        "Translated technical features into business terms by showing how websites, follow-up, and acquisition systems connect to revenue opportunities.",
-    },
-  ],
-};
-
 // --- Projects Section ---
 export interface Project {
   category: string;
@@ -182,14 +124,14 @@ export const experience = {
   heading: "Engineering work tied to deployed products and business outcomes.",
   items: [
     {
-      title: "Founding Engineer",
-      company: "MoreClientsCo",
-      dates: "MAY 2026 - SEP 2026",
+      title: "Business Development Representative",
+      company: "Direct Clean Solutions",
+      dates: "SEP 2026 - PRESENT",
       bullets: [
-        "Automated qualification and lead scoring for 4,000+ businesses by building a Python prospecting system that ingests public business data, applies weighted scoring, and organizes qualified prospects through the Google Sheets API and website scraping.",
-        "Saved 20+ hours of manual prospecting and 8+ hours of research by engineering automated collection, enrichment, deduplication, and an AI research pipeline using Claude and Google Places APIs.",
-        "Built a SaaS layer around the prospecting system using FastAPI endpoints deployed through AWS Lambda and a frontend application exposing prospecting, enrichment, and scoring workflows.",
-        "Validated the system through real-world GTM execution across 100+ outbound calls, 150+ campaign emails, 6 qualified meetings, and 2 paying clients worth $2,500 total.",
+        "Drive outbound business development for commercial janitorial services through high-volume cold calling, lead qualification, and prospect nurturing, collaborating with sales leadership on meeting generation and opportunity progression.",
+        "Executed 581 outbound calls in October 2026 with a 15.15% connection rate, identifying 21 prospective leads for continued nurturing and potential sales opportunities.",
+        "Manage day-to-day HubSpot CRM operations, including prospect tracking, pipeline organization, and sales activity and engagement reporting.",
+        "Developed outbound email scripts and follow-up messaging, and implemented cold email campaign infrastructure using Insightly.ai to nurture prospects not yet ready to buy.",
       ],
     },
     {
@@ -205,20 +147,20 @@ export const experience = {
       links: [{ label: "firstmove.dev", href: "https://firstmove.dev" }],
     },
     {
-      title: "Business Development Representative",
-      company: "Direct Clean Solutions",
-      dates: "SEP 2026 - PRESENT",
+      title: "Founding Engineer",
+      company: "MoreClientsCo",
+      dates: "MAY 2026 - SEP 2026",
       bullets: [
-        "Drive outbound business development for commercial janitorial services through high-volume cold calling, lead qualification, and prospect nurturing, collaborating with sales leadership on meeting generation and opportunity progression.",
-        "Executed 581 outbound calls in October 2026 with a 15.15% connection rate, identifying 21 prospective leads for continued nurturing and potential sales opportunities.",
-        "Manage day-to-day HubSpot CRM operations, including prospect tracking, pipeline organization, and sales activity and engagement reporting.",
-        "Developed outbound email scripts and follow-up messaging, and implemented cold email campaign infrastructure using Insightly.ai to nurture prospects not yet ready to buy.",
+        "Automated qualification and lead scoring for 4,000+ businesses by building a Python prospecting system that ingests public business data, applies weighted scoring, and organizes qualified prospects through the Google Sheets API and website scraping.",
+        "Saved 20+ hours of manual prospecting and 8+ hours of research by engineering automated collection, enrichment, deduplication, and an AI research pipeline using Claude and Google Places APIs.",
+        "Built a SaaS layer around the prospecting system using FastAPI endpoints deployed through AWS Lambda and a frontend application exposing prospecting, enrichment, and scoring workflows.",
+        "Validated the system through real-world GTM execution across 100+ outbound calls, 150+ campaign emails, 6 qualified meetings, and 2 paying clients worth $2,500 total.",
       ],
     },
     {
       title: "Go-to-Market Consultant | Growth Systems",
       company: "Chef Gerry Catering | Freelance",
-      dates: "MAY 2026 - PRESENT",
+      dates: "MAY 2026 - SEP 2026",
       description:
         "Built the company's digital acquisition infrastructure by developing its website, inquiry workflows, lead tracking, Google Business presence, and automated email follow-up through Resend. Supported venue partnership prospecting, direct outreach, referral-channel development, follow-up, and website/search analytics.",
       links: [{ label: "chefgerrycatering.com", href: "https://chefgerrycatering.com" }],

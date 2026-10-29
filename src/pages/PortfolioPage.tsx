@@ -9,7 +9,6 @@ import { Header, Footer } from "../components/layout";
 import {
   Hero,
   Ticker,
-  ColdCalling,
   FeaturedProjects,
   OperationalExperience,
   TechnicalProfile,
@@ -29,7 +28,6 @@ const PortfolioPage: React.FC = () => {
         <Ticker />
         <FeaturedProjects />
         <OperationalExperience />
-        <ColdCalling />
         <TechnicalProfile />
         <ContactCta />
       </main>

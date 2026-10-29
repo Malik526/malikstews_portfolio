@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## [2026-10-29] — Content Update: Experience Order and GTM Section Removal
+
+### Summary
+Follow-up content change to the main portfolio. Experience is reordered, two end dates are updated, and the outdated Customer & GTM Experience section is removed. The hero is unchanged and still leads with Full-Stack Engineer. No components were redesigned.
+
+### Changes
+- `src/lib/content.ts`: reordered experience to Direct Clean Solutions, FirstMove, MoreClientsCo, then Chef Gerry Catering and the Hospitality Officer entry in their existing order. Changed the Chef Gerry Catering end date to `SEP 2026`; MoreClientsCo already showed `MAY 2026 - SEP 2026`. Removed the now-unused `coldCalling` content export.
+- `src/pages/PortfolioPage.tsx` and `src/components/sections/index.ts`: removed the Customer & GTM Experience section from the page and the barrel export. Deleted `src/components/sections/ColdCalling.tsx`. No navigation link pointed to the section (`#sales-outreach`), so the nav is unchanged.
+- `SITE_CONTENT.md`: updated the homepage order and experience list, and recorded the removed section.
+
+### Verification
+- `npm run build` passes. The repo has no lint or test scripts.
+- Rendered the build in headless Chromium: experience order and dates match, and the Customer & GTM Experience section no longer appears.
+
+---
+
 ## [2026-10-29] — Content Update: Experience and Engineering Projects
 
 ### Summary

@@ -16,9 +16,8 @@ The portfolio should communicate that Malik Stewart builds deployed products, GT
 2. Technical Summary
 3. Engineering Projects & Systems
 4. Technical Experience
-5. Customer & GTM Experience
-6. Skills & Education
-7. Contact
+5. Skills & Education
+6. Contact
 
 ## Hero
 
@@ -97,15 +96,11 @@ Chef Gerry Catering links to:
 
 Primary entries:
 
-- MoreClientsCo | Founding Engineer | May 2026 - Sep 2026
-- FirstMove | Founder / Full-Stack Engineer | Aug 2025 - Present
 - Direct Clean Solutions | Business Development Representative | Sep 2026 - Present
-- Chef Gerry Catering | Go-to-Market Consultant | Growth Systems | Freelance | May 2026 - Present
+- FirstMove | Founder / Full-Stack Engineer | Aug 2025 - Present
+- MoreClientsCo | Founding Engineer | May 2026 - Sep 2026
+- Chef Gerry Catering | Go-to-Market Consultant | Growth Systems | Freelance | May 2026 - Sep 2026
 - The Peninsula New York & Faena New York (via IPS Security) | Hospitality Officer | Apr 2022 - Jul 2026
-
-## Customer & GTM Experience
-
-Sales and outbound content is preserved lower on the page as proof of customer understanding, commercial context, discovery, communication, objection handling, demo delivery, and pipeline ownership.
 
 ## Skills
 
@@ -149,3 +144,4 @@ Removed from active site structure:
 - Vintek/Vintec content
 - Sales-first identity
 - MoreClientsCo business email as personal portfolio contact
+- Customer & GTM Experience section (outbound stats and sales activity cards), removed 2026-10-29 because it was outdated and overlapped with Experience. The Direct Clean Solutions BDR role stays in Experience as supporting history; the hero and positioning remain engineering-first.
