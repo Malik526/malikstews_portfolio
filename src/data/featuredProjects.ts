@@ -73,21 +73,43 @@ export const featuredProjects = [
     title: "AI Agent Development Harness",
     category: "Agentic Engineering / Developer Infrastructure",
     problem:
-      "Recurring AI-agent development work can become slow when global policies, project state, scripts, and verification context are mixed together manually.",
+      "AI coding agents behave inconsistently across tools and projects, and without enforced rules they can skip verification, commit unreviewed changes, or touch protected branches.",
     solution:
-      "Built reusable Skills, project instructions, persistent memory, and deterministic scripts so recurring AI-agent workflows can load the right context and delegate repeatable execution.",
-    tech: "Codex Skills · Project Instructions · Persistent Memory · Shell Scripts · Build/Test/Typecheck Validation",
+      "Built a version-controlled harness of shared engineering policies that Claude Code and Codex both load through thin adapters, plus Autobuild, an optional controller that runs one approved brief through an implementer agent and an independent reviewer agent in an isolated Git worktree.",
+    tech: "Python · Claude Code · Codex CLI · Git Worktrees · Bubblewrap Sandboxing · JSON Schema · YAML · pytest",
     outcome:
-      "Improved context efficiency and paired model reasoning with deterministic verification through tests, builds, type checks, linting, and validation scripts.",
+      "Verified live with both Claude Code and Codex as implementer and reviewer: runs either pass sandboxed validation and independent review before a checkpoint commit on their own run branch, or stop safely with work preserved, and never merge or push.",
     visual: {
       title: "Harness Layers",
       items: [
-        "Global policy separated from project-specific state",
-        "Skills loaded only when relevant to the current workflow",
-        "Scripts and existing tools handle repeatable execution",
-        "Verification loops catch regressions before handoff",
+        "Shared policies loaded by Claude Code and Codex through thin adapters",
+        "Commit guards, instruction audit, and manual completion checks",
+        "Implementer and independent reviewer agents in an isolated worktree",
+        "Controller-run sandboxed validation with no merge, push, or deploy",
       ],
     },
+  },
+  {
+    slug: "w2-pipeline",
+    title: "W2 Pipeline",
+    category: "Python + Document Automation",
+    problem:
+      "Tax-preparation firms re-key client W-2 data by hand, a slow process where a single silent extraction error can flow into downstream tax workflows.",
+    solution:
+      "Built a W-2 processing pipeline that extracts each PDF or image into a typed record with OCR and a deterministic parser, checks it against 16 evidence-based validation rules, and routes anything uncertain to a mandatory human review step before JSON/CSV export.",
+    tech: "Python · PaddleOCR · Tesseract · Pydantic · PyMuPDF · FastAPI · Next.js · TypeScript · pytest",
+    outcome:
+      "Reached 99.6% extraction accuracy and a 0.33% unsafe-acceptance rate with no false reviews on a 600-document synthetic benchmark at about 1.2-1.35s per document, run through single-document and batch CLIs or a local demo UI.",
+    visual: {
+      title: "Pipeline Stages",
+      items: [
+        "OCR extraction into a typed, canonical W-2 record",
+        "16-rule evidence-based validation",
+        "Mandatory human review for uncertain documents",
+        "Deterministic JSON/CSV export after finalization",
+      ],
+    },
+    links: [{ label: "GitHub repository", href: "https://github.com/Malik526/w2_pipeline" }],
   },
   {
     slug: "prospecting-tool",

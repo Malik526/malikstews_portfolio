@@ -71,6 +71,7 @@ Featured projects:
 - MoreClientsCo Research Pipeline
 - FirstMove
 - AI Agent Development Harness
+- W2 Pipeline
 - Service Business Prospecting Assistant
 - Chef Gerry Catering
 
@@ -84,6 +85,10 @@ Service Business Prospecting Assistant uses this Loom embed:
 
 > https://www.loom.com/embed/40680343cb774aaca0a9ada5e9989503
 
+W2 Pipeline uses the same text-only visual panel as the AI Agent Development Harness (no image or video yet) and links to:
+
+> https://github.com/Malik526/w2_pipeline
+
 Chef Gerry Catering links to:
 
 > https://chefgerrycatering.com
@@ -92,8 +97,9 @@ Chef Gerry Catering links to:
 
 Primary entries:
 
-- MoreClientsCo | Founding Engineer | May 2026 - Present
+- MoreClientsCo | Founding Engineer | May 2026 - Sep 2026
 - FirstMove | Founder / Full-Stack Engineer | Aug 2025 - Present
+- Direct Clean Solutions | Business Development Representative | Sep 2026 - Present
 - Chef Gerry Catering | Go-to-Market Consultant | Growth Systems | Freelance | May 2026 - Present
 - The Peninsula New York & Faena New York (via IPS Security) | Hospitality Officer | Apr 2022 - Jul 2026
 

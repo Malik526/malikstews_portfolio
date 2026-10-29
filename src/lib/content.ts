@@ -184,7 +184,7 @@ export const experience = {
     {
       title: "Founding Engineer",
       company: "MoreClientsCo",
-      dates: "MAY 2026 - PRESENT",
+      dates: "MAY 2026 - SEP 2026",
       bullets: [
         "Automated qualification and lead scoring for 4,000+ businesses by building a Python prospecting system that ingests public business data, applies weighted scoring, and organizes qualified prospects through the Google Sheets API and website scraping.",
         "Saved 20+ hours of manual prospecting and 8+ hours of research by engineering automated collection, enrichment, deduplication, and an AI research pipeline using Claude and Google Places APIs.",
@@ -203,6 +203,17 @@ export const experience = {
         "Owned V1 from architecture through frontend, backend integrations, database design, debugging, deployment, and product iteration.",
       ],
       links: [{ label: "firstmove.dev", href: "https://firstmove.dev" }],
+    },
+    {
+      title: "Business Development Representative",
+      company: "Direct Clean Solutions",
+      dates: "SEP 2026 - PRESENT",
+      bullets: [
+        "Drive outbound business development for commercial janitorial services through high-volume cold calling, lead qualification, and prospect nurturing, collaborating with sales leadership on meeting generation and opportunity progression.",
+        "Executed 581 outbound calls in October 2026 with a 15.15% connection rate, identifying 21 prospective leads for continued nurturing and potential sales opportunities.",
+        "Manage day-to-day HubSpot CRM operations, including prospect tracking, pipeline organization, and sales activity and engagement reporting.",
+        "Developed outbound email scripts and follow-up messaging, and implemented cold email campaign infrastructure using Insightly.ai to nurture prospects not yet ready to buy.",
+      ],
     },
     {
       title: "Go-to-Market Consultant | Growth Systems",

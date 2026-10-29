@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## [2026-10-29] — Content Update: Experience and Engineering Projects
+
+### Summary
+Content-only update to the main portfolio. No components, styles, or layout changed.
+
+### Changes
+- `src/lib/content.ts`: MoreClientsCo end date changed to `SEP 2026`. Added Direct Clean Solutions (Business Development Representative, `SEP 2026 - PRESENT`, commercial janitorial services) after the two engineering roles, keeping technical experience above sales/GTM content. Its October 2026 metrics are 581 outbound calls, a 15.15% connection rate, and 21 prospective leads (leads for nurturing, not booked meetings or qualified opportunities). FirstMove and other entries are unchanged.
+- `src/data/featuredProjects.ts`: rewrote the AI Agent Development Harness Problem/Solution/Tech/Outcome and visual panel to match the current `ai-engineering-harness` repository (shared policies for Claude Code and Codex, runtime guards, Autobuild with an independent reviewer, isolated worktrees, sandboxed validation). Both providers are live-verified there. Added W2 Pipeline (W-2 OCR extraction, 16-rule validation, mandatory human review, JSON/CSV export) after it, using the same text-only visual panel and a link to its public GitHub repository. Its metrics come from that repo's documented 600-document synthetic benchmark.
+- `SITE_CONTENT.md`: updated the featured project and experience lists.
+
+### Verification
+- `npm run build` passes. The repo has no lint or test scripts.
+- Served the build with `vite preview` and rendered it in headless Chromium. The new experience entry, dates, metrics, and both project panels appear in the existing layout at 1280 px.
+
+---
+
 ## [2026-10-12] — AI Engineering Harness: Deliver via GitHub Instead of ZIP
 
 ### Summary
